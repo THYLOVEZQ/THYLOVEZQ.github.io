@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-12-23T17:07:19.330Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://example.com/2021/12/24/hello-world/"/>
+    <id>http://example.com/2021/12/24/hello-world/</id>
+    <published>2021-12-23T17:07:19.329Z</published>
+    <updated>2021-12-23T17:07:19.330Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>QT基础第二章</title>
+    <link href="http://example.com/2021/12/22/QT%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E7%AB%A0/"/>
+    <id>http://example.com/2021/12/22/QT%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%BA%8C%E7%AB%A0/</id>
+    <published>2021-12-22T13:16:07.000Z</published>
+    <updated>2021-12-23T05:55:18.745Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PYQT里mainToolBar的设置"><a href="#PYQT里mainToolBar的设置" class="headerlink" title="PYQT里mainToolBar的设置"></a>PYQT里mainToolBar的设置</h2><p>一.利用UI设置action</p><p>​    我们可以利用UI_Designer快速的生成action。然后将action拖拽至mainToolBar即可形成工具栏的快速操作</p><p>二.在 ——init——()函数里设置显示方法</p><p>​    此时，我们将ui文件编译为py文件后，mainToolBar里只有图标没有文字，因此，我们要在初始化方法里添加如下代码设置mainToolBar里既显示图标又显示文字</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">self.ui.mainToolBar.setToolButtonStyle(Qt.ToolButtonTextBesideIcon)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;PYQT里mainToolBar的设置&quot;&gt;&lt;a href=&quot;#PYQT里mainToolBar的设置&quot; class=&quot;headerlink&quot; title=&quot;PYQT里mainToolBar的设置&quot;&gt;&lt;/a&gt;PYQT里mainToolBar的设置&lt;/h2&gt;&lt;p&gt;一.</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>QT基础第一章</title>
+    <link href="http://example.com/2021/12/22/QT%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E7%AB%A0/"/>
+    <id>http://example.com/2021/12/22/QT%E5%9F%BA%E7%A1%80%E7%AC%AC%E4%B8%80%E7%AB%A0/</id>
+    <published>2021-12-22T05:36:33.000Z</published>
+    <updated>2021-12-22T13:17:43.610Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="QT基础使用"><a href="#QT基础使用" class="headerlink" title="QT基础使用"></a>QT基础使用</h2><p>一.PYQT的使用</p><ol><li><p>使用可视化UI Designer设计窗体</p></li><li><p>使用pyuic5将ui文件编译为py文件(为了不重复的输入该命令我们将该命令输入到bat文件里)</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">echo off</span><br><span class="line">rem 将子目录下的mainwindow.ui复制到当前文件下，并且编译</span><br><span class="line">copy .\qtapp6\mainwindow.ui mainwindow.ui</span><br><span class="line">pyuic5 -o ui_mainwindow.py mainwindow.ui</span><br></pre></td></tr></table></figure><p>3.建立QmyMainWindow类</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QmyMainWindow</span>(<span class="params">QMainWindow</span>):</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span></span><br><span class="line"><span class="built_in">super</span>().__init(parent)</span><br><span class="line">self.ui = Ui_MainWindow()</span><br><span class="line">self.ui.setupUi(self)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">app = QApplication(sys.argv)</span><br><span class="line">form = QmyMainWindow()</span><br><span class="line">form.show()</span><br><span class="line">sys.exit(app.exec_())</span><br></pre></td></tr></table></figure></li></ol><p>至此,QT界面全部创建完成。</p><p>二.建立窗口的文字和窗口的图标</p><p>1.设置程序的文字</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">QmyMainWindow</span>(<span class="params">QMainWindow</span>):</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, parent=<span class="literal">None</span></span>):</span></span><br><span class="line">self.setWindowTitle(<span class="string">&quot;窗口标题&quot;</span>)</span><br></pre></td></tr></table></figure><p>2.设置程序的图标</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">icon = QIcon(<span class="string">&quot;图片url&quot;</span>)</span><br><span class="line">    form.setWindowIcon(icon)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;QT基础使用&quot;&gt;&lt;a href=&quot;#QT基础使用&quot; class=&quot;headerlink&quot; title=&quot;QT基础使用&quot;&gt;&lt;/a&gt;QT基础使用&lt;/h2&gt;&lt;p&gt;一.PYQT的使用&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;使用可视化UI Designer设计窗体&lt;/p&gt;
+&lt;/l</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
