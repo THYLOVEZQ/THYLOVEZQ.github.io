@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-23T17:07:19.330Z</updated>
+  <updated>2021-12-25T06:53:00.447Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>编译器配置Github</title>
+    <link href="http://example.com/2021/12/25/%E7%BC%96%E8%AF%91%E5%99%A8%E9%85%8D%E7%BD%AEGithub/"/>
+    <id>http://example.com/2021/12/25/%E7%BC%96%E8%AF%91%E5%99%A8%E9%85%8D%E7%BD%AEGithub/</id>
+    <published>2021-12-25T06:50:08.000Z</published>
+    <updated>2021-12-25T06:53:00.447Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Github生成token">Github生成token</h2><p>参考博客</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Github生成token&quot;&gt;Github生成token&lt;/h2&gt;
+&lt;p&gt;参考博客&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="Github使用" scheme="http://example.com/categories/Github%E4%BD%BF%E7%94%A8/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
