@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-12-25T06:58:14.301Z</updated>
+  <updated>2021-12-27T14:43:19.008Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,20 +17,47 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>近场天线测量app设计</title>
+    <link href="http://example.com/2021/12/27/%E8%BF%91%E5%9C%BA%E5%A4%A9%E7%BA%BF%E6%B5%8B%E9%87%8Fapp%E8%AE%BE%E8%AE%A1/"/>
+    <id>http://example.com/2021/12/27/%E8%BF%91%E5%9C%BA%E5%A4%A9%E7%BA%BF%E6%B5%8B%E9%87%8Fapp%E8%AE%BE%E8%AE%A1/</id>
+    <published>2021-12-27T13:49:34.000Z</published>
+    <updated>2021-12-27T14:43:19.008Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="近场测量app设计">近场测量app设计</h2><h3 id="平面近场天线测量软件使用">平面近场天线测量软件使用</h3><p>下图为平面近场测量软件主界面</p><p><img src="../img/app.png" alt=""></p><p>下图为该程序主要功能模块</p><p><img src="D:%5Cthy123%5Csource%5Cimg%5C1.png" alt=""></p><p>使用方法</p><p><img src="D:%5Cthy123%5Csource%5Cimg%5C%E5%8A%A8%E7%94%BB.gif" alt=""></p><h3 id="软件待开发模块">软件待开发模块</h3><p>1.近场数据显示模块(已经写好)</p><p>2.平面近远场变换模块:fire::fire::fire:</p><p>3.远场显示模块</p><ol start="4"><li></li></ol><h3 id="软件BUG与不完善">软件BUG与不完善</h3><p>1.添加数据时，需要点击添加数据的文件夹才能添加，是否有更好的做法？且由于目标文件的限制一次只能添加两个文件，否则会添加不了。</p><p>2.添加时，先判断是否为近场数据，如果不为近场数据，则不弹出选择文件。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;近场测量app设计&quot;&gt;近场测量app设计&lt;/h2&gt;
+&lt;h3 id=&quot;平面近场天线测量软件使用&quot;&gt;平面近场天线测量软件使用&lt;/h3&gt;
+&lt;p&gt;下图为平面近场测量软件主界面&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;../img/app.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;</summary>
+      
+    
+    
+    
+    <category term="近场天线测量" scheme="http://example.com/categories/%E8%BF%91%E5%9C%BA%E5%A4%A9%E7%BA%BF%E6%B5%8B%E9%87%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>编译器配置Github</title>
     <link href="http://example.com/2021/12/25/%E7%BC%96%E8%AF%91%E5%99%A8%E9%85%8D%E7%BD%AEGithub/"/>
     <id>http://example.com/2021/12/25/%E7%BC%96%E8%AF%91%E5%99%A8%E9%85%8D%E7%BD%AEGithub/</id>
     <published>2021-12-25T06:50:08.000Z</published>
-    <updated>2021-12-25T06:58:14.301Z</updated>
+    <updated>2021-12-27T13:02:59.801Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Github生成token">Github生成token</h2><p>参考博客</p><p><a href="Github%E7%94%9F%E6%88%90token">https://www.cnblogs.com/all-rounded/p/14792109.html</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Github与IDE的集成">Github与IDE的集成</h2><h3 id="Github生成token">Github生成token</h3><p>参考博客</p><p><a href="Github%E7%94%9F%E6%88%90token">https://www.cnblogs.com/all-rounded/p/14792109.html</a></p><h3 id="Git使用流程">Git使用流程</h3><p>团队开发时，作为贡献者首先clone远端仓库代码然后使用新的分支进行开发，开发代码完毕后进行提交(push)。然后等待Merge。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h2 id=&quot;Github生成token&quot;&gt;Github生成token&lt;/h2&gt;
+    <summary type="html">&lt;h2 id=&quot;Github与IDE的集成&quot;&gt;Github与IDE的集成&lt;/h2&gt;
+&lt;h3 id=&quot;Github生成token&quot;&gt;Github生成token&lt;/h3&gt;
 &lt;p&gt;参考博客&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;Github%E7%94%9F%E6%88%90token&quot;&gt;https://www.cnblogs.com/all-rounded/p/14792</summary>
+&lt;p&gt;&lt;a href=&quot;Github%E7%94%9F%E6%88%90token&quot;&gt;h</summary>
       
     
     
