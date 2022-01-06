@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-06T10:33:46.673Z</updated>
+  <updated>2022-01-06T15:19:21.164Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>GET请求和POST请求</title>
+    <link href="http://example.com/2022/01/06/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82/"/>
+    <id>http://example.com/2022/01/06/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82/</id>
+    <published>2022-01-06T14:26:24.000Z</published>
+    <updated>2022-01-06T15:19:21.164Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="定义">定义</h3><p>无论是<strong>GET</strong>还是<strong>POST</strong>，统一由视图函数接收请求，通过判断<strong>request.method</strong>区分具体的请求动作</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if request.method == &#x27;GET&#x27;:</span><br><span class="line">处理GET请求时的业务逻辑</span><br><span class="line">elif request.method == &#x27;POST&#x27;:</span><br><span class="line">处理POST请求时的业务逻辑</span><br><span class="line">else:</span><br><span class="line">其他请求业务逻辑</span><br></pre></td></tr></table></figure><h3 id="GET请求">GET请求</h3><p><strong>GET</strong>请求动作，一般用于向服务器获取数据</p><p>能够产生<strong>GET</strong>请求的场景</p><p>​-浏览器地址栏输入URL，回车后</p><p>​-<a href="地址?参数=值&参数=值"></p><p>​-form表单中的method为GET</p><p><strong>GET</strong>请求方式中，如果有数据需要传给服务器，通常会用查询字符串(Query String)传递[不要传递敏感数据]</p><p>URL格式:xxx?参数1:值1&amp;参数2:值2</p><p>​-如:<a href="http://127.0.0.1/page1?a=100&amp;b=200">http://127.0.0.1/page1?a=100&amp;b=200</a></p><p>服务器端接收数据</p><p>​获取客户端请求GET请求提交的数据</p><h4 id="方法实例">方法实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.GET[<span class="string">&#x27;参数名&#x27;</span>]</span><br><span class="line">request.GET(<span class="string">&#x27;参数名&#x27;</span>,<span class="string">&#x27;默认值&#x27;</span>)</span><br><span class="line">request.GET.getlist(<span class="string">&#x27;参数名&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
+&lt;p&gt;无论是&lt;strong&gt;GET&lt;/strong&gt;还是&lt;strong&gt;POST&lt;/strong&gt;，统一由视图函数接收请求，通过判断&lt;strong&gt;request.method&lt;/strong&gt;区分具体的请求动作&lt;/p&gt;
+&lt;figure c</summary>
+      
+    
+    
+    
+    <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>DDL-1</title>
@@ -126,9 +150,9 @@
     <link href="http://example.com/2022/01/06/%E8%AF%B7%E6%B1%82%E5%8F%8A%E5%93%8D%E5%BA%94/"/>
     <id>http://example.com/2022/01/06/%E8%AF%B7%E6%B1%82%E5%8F%8A%E5%93%8D%E5%BA%94/</id>
     <published>2022-01-06T06:55:04.000Z</published>
-    <updated>2022-01-06T08:06:41.105Z</updated>
+    <updated>2022-01-06T14:25:11.804Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="HTTP协议的请求和响应">HTTP协议的请求和响应</h3><blockquote><p>请求是指浏览器端通过HTTP协议发送给服务器端的数据</p><p>响应是指服务器端接收到请求后做相应的处理后再返回给浏览器端的数据</p></blockquote><h3 id="请求中的方法">请求中的方法</h3><p>根据HTTP协议，HTTP协议可使用多种方法</p><p>HTTP1.0定义了三种请求方法:<strong>GET</strong>,<strong>POST</strong>和<strong>HEAD</strong>方法</p><p>HTTP1.1新增了五种请求方法:<strong>OPTIONS</strong>,<strong>PUT</strong>,<strong>DELETE</strong>,<strong>TRACE</strong>和<strong>CONNECT</strong>方法</p><table><thead><tr><th>序号</th><th>方法</th><th>描述</th></tr></thead><tbody><tr><td>1</td><td>GET</td><td>请求指定的页面信息，并返回实体主题</td></tr><tr><td>2</td><td>HEAD</td><td>类似于POST请求，只不过访问的请求中没有具体的内容，用于获取表头</td></tr><tr><td>3</td><td>POST</td><td>向指定资源提交数据进行处理请求(例如提交表单或者上传文件)。数据被包含在请求体中。POST请求可能会导致新的资源的建立或者旧资源的修改。(所以Post用来增资源)</td></tr><tr><td>4</td><td>PUT</td><td>从客户端向服务器传送的数据取代指定的文档的内容</td></tr><tr><td>5</td><td>DELETE</td><td>请求服务器删除指定的页面</td></tr><tr><td>6</td><td>CONNECT</td><td>允许将连接方式改为管道方式的代理服务器</td></tr><tr><td>7</td><td>OPTIONS</td><td>允许客户端查看服务器的性能</td></tr><tr><td>8</td><td>TRACE</td><td>回显服务器收到的请求，主要用于测试或者诊断</td></tr></tbody></table><h3 id="Django中的请求">Django中的请求</h3><p>请求在Django中实则就是<strong>视图函数中的第一个参数</strong>，即<strong>HttpRequest</strong>对象</p><p>Django接收到HTTP协议的对象后，会根据请求数据报文创建<strong>HttpRequest</strong>对象</p><p><strong>HttpRequest</strong>对象通过属性描述了<strong>请求的所有相关信息</strong></p><h3 id="Django中请求的属性和方法">Django中请求的属性和方法</h3><p><strong>path_info</strong>:URL字符串</p><p><strong>method</strong>:字符串，表示HTTP请求方法，常用值:‘<strong>GET</strong>’,‘<strong>POST</strong>’</p><h3 id="HTTP响应状态码">HTTP响应状态码</h3><p><strong>HTTP</strong>状态码的英文为:HTTP Status Code</p><p>下面是常见的HTTP状态码</p><p>-200-请求成功</p><p>-301-永久重定向-资源或者网页被转移到其他URL</p><p>-302-临时重定向</p><p>-404-访问的资源(网页)不存在</p><p>-500-内部服务器错误</p><p>HTTP状态码有<strong>三个十进制数字</strong>组成，第一个十进制定义了<strong>状态码的类型</strong>，后两个数字没有分类的作用。HTTP状态码共分为5种类型</p><table><thead><tr><th>分类</th><th>分类描述</th></tr></thead><tbody><tr><td>1XX</td><td>信息，服务器收到请求，需要请求者继续执行操作</td></tr><tr><td>2XX</td><td>成功，操作被成功接收并处理</td></tr><tr><td>3XX</td><td>重定向，需要进一步的操作以完成请求</td></tr><tr><td>4XX</td><td>客户端错误，请求包含语法错误或无法完成请求</td></tr><tr><td>5XX</td><td>服务器错误，服务器在处理请求的过程中发生了错误</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<h3 id="HTTP协议的请求和响应">HTTP协议的请求和响应</h3><blockquote><p>请求是指浏览器端通过HTTP协议发送给服务器端的数据</p><p>响应是指服务器端接收到请求后做相应的处理后再返回给浏览器端的数据</p></blockquote><h3 id="请求中的方法">请求中的方法</h3><p>根据HTTP协议，HTTP协议可使用多种方法</p><p>HTTP1.0定义了三种请求方法:<strong>GET</strong>,<strong>POST</strong>和<strong>HEAD</strong>方法</p><p>HTTP1.1新增了五种请求方法:<strong>OPTIONS</strong>,<strong>PUT</strong>,<strong>DELETE</strong>,<strong>TRACE</strong>和<strong>CONNECT</strong>方法</p><table><thead><tr><th>序号</th><th>方法</th><th>描述</th></tr></thead><tbody><tr><td>1</td><td>GET</td><td>请求指定的页面信息，并返回实体主题</td></tr><tr><td>2</td><td>HEAD</td><td>类似于POST请求，只不过访问的请求中没有具体的内容，用于获取表头</td></tr><tr><td>3</td><td>POST</td><td>向指定资源提交数据进行处理请求(例如提交表单或者上传文件)。数据被包含在请求体中。POST请求可能会导致新的资源的建立或者旧资源的修改。(所以Post用来增资源)</td></tr><tr><td>4</td><td>PUT</td><td>从客户端向服务器传送的数据取代指定的文档的内容</td></tr><tr><td>5</td><td>DELETE</td><td>请求服务器删除指定的页面</td></tr><tr><td>6</td><td>CONNECT</td><td>允许将连接方式改为管道方式的代理服务器</td></tr><tr><td>7</td><td>OPTIONS</td><td>允许客户端查看服务器的性能</td></tr><tr><td>8</td><td>TRACE</td><td>回显服务器收到的请求，主要用于测试或者诊断</td></tr></tbody></table><h3 id="Django中的请求">Django中的请求</h3><p>请求在Django中实则就是<strong>视图函数中的第一个参数</strong>，即<strong>HttpRequest</strong>对象</p><p>Django接收到HTTP协议的对象后，会根据请求数据报文创建<strong>HttpRequest</strong>对象</p><p><strong>HttpRequest</strong>对象通过属性描述了<strong>请求的所有相关信息</strong></p><h3 id="Django中请求的属性和方法">Django中请求的属性和方法</h3><p><strong>path_info</strong>:URL字符串</p><p><strong>method</strong>:字符串，表示HTTP请求方法，常用值:‘<strong>GET</strong>’,‘<strong>POST</strong>’</p><h3 id="HTTP响应状态码">HTTP响应状态码</h3><p><strong>HTTP</strong>状态码的英文为:HTTP Status Code</p><p>下面是常见的HTTP状态码</p><p>-200-请求成功</p><p>-301-永久重定向-资源或者网页被转移到其他URL</p><p>-302-临时重定向</p><p>-404-访问的资源(网页)不存在</p><p>-500-内部服务器错误</p><p>HTTP状态码有<strong>三个十进制数字</strong>组成，第一个十进制定义了<strong>状态码的类型</strong>，后两个数字没有分类的作用。HTTP状态码共分为5种类型</p><table><thead><tr><th>分类</th><th>分类描述</th></tr></thead><tbody><tr><td>1XX</td><td>信息，服务器收到请求，需要请求者继续执行操作</td></tr><tr><td>2XX</td><td>成功，操作被成功接收并处理</td></tr><tr><td>3XX</td><td>重定向，需要进一步的操作以完成请求</td></tr><tr><td>4XX</td><td>客户端错误，请求包含语法错误或无法完成请求</td></tr><tr><td>5XX</td><td>服务器错误，服务器在处理请求的过程中发生了错误</td></tr></tbody></table><h3 id="Django中的请求的属性与方法">Django中的请求的属性与方法</h3><table><thead><tr><th>path_info</th><th>URL字符串</th></tr></thead><tbody><tr><td>mathod</td><td>字符串，表示HTTP请求方法，常用值:‘GET’，‘POST’</td></tr><tr><td>GET</td><td>QueryDict查询字典的对象，包含get请求方式的所有数据</td></tr><tr><td>POST</td><td>QueryDict查询字典的对象，包含post请求方式的所有数据</td></tr><tr><td>FILES</td><td>类似于字典的对象，包含所有的上传文件信息</td></tr><tr><td>COOKIES</td><td>Python字典，包含所有的cookie，键和值都为字符串</td></tr><tr><td>session</td><td>似于字典的对象，表示当前的会话</td></tr><tr><td>body</td><td>字符串，请求体的内容(POST或者PUT)</td></tr><tr><td>scheme</td><td>请求协议(‘HTTP’/‘HTTPS’)</td></tr><tr><td>request.get_full_path()</td><td>请求的完整路径</td></tr><tr><td>request.META</td><td>请求中的元数据(消息头)</td></tr><tr><td>request.META[‘REMOTE_ADDR’]</td><td>客户端地址</td></tr></tbody></table><h3 id="Django中的响应对象">Django中的响应对象</h3><p>构造函数格式:</p><p>​HttpResponse(content=响应体，content_type=响应体数据类型(默认值HTML)，status=状态码(默认值200))</p><p>作用:</p><p>​向客户端浏览器返回响应，同时携带响应体内容</p><h3 id="常用的Content-Type如下">常用的Content-Type如下</h3><table><thead><tr><th>Content-Type</th><th>含义</th></tr></thead><tbody><tr><td>text/HTML</td><td>默认的，HTML文件</td></tr><tr><td>text/plain</td><td>纯文本</td></tr><tr><td>text/css</td><td>css文件</td></tr><tr><td>text/javascript</td><td>javascript文件</td></tr><tr><td>multipart/form-data</td><td>文件提交</td></tr><tr><td>application/json</td><td>json传输</td></tr><tr><td>application/xml</td><td>xml文件</td></tr></tbody></table>]]></content>
     
     
       
@@ -482,32 +506,6 @@
 &lt;/blockquote&gt;
 &lt;blockquote&gt;
 &lt;p&gt;</summary>
-      
-    
-    
-    
-    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>相同的树</title>
-    <link href="http://example.com/2021/12/31/%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/"/>
-    <id>http://example.com/2021/12/31/%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91/</id>
-    <published>2021-12-31T04:30:44.000Z</published>
-    <updated>2021-12-31T04:40:16.044Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>给你两棵二叉树的根节点 <code>p</code> 和 <code>q</code> ，编写一个函数来检验这两棵树是否相同。</p><p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p></blockquote><h3 id="深度优先遍历">深度优先遍历</h3><blockquote><p>什么是深度优先遍历</p><p>对于二叉树，有深度遍历和广度遍历，深度遍历有前序、中序以及后序三种遍历方法</p><p>什么是广度优先遍历</p><p>广度遍历即我们寻常所说的层次遍历。</p></blockquote><h3 id="本题思路">本题思路</h3><p>首先判断根节点是否相同，如果根节点相同，那么进行递归，如果根节点不同，那么返回false，如果根节点的值不同，那么也返回false.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isSameTree</span><span class="params">(TreeNode p, TreeNode q)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//递归求解，如果两个数的根节点都为空，那么则进行下面的判断</span></span><br><span class="line">        <span class="keyword">if</span>(p==<span class="keyword">null</span>&amp;&amp;q==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p==<span class="keyword">null</span>||q==<span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p.val!=q.val)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> isSameTree(p.left,q.left)&amp;&amp;isSameTree(p.right,q.right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;给你两棵二叉树的根节点 &lt;code&gt;p&lt;/code&gt; 和 &lt;code&gt;q&lt;/code&gt; ，编写一个函数来检验这两棵树是否相同。&lt;/p&gt;
-&lt;p&gt;如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;</summary>
       
     
     
