@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-07T07:26:46.251Z</updated>
+  <updated>2022-01-07T15:06:49.482Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,55 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>XML</title>
+    <link href="http://example.com/2022/01/07/XML%E7%9A%84%E7%94%A8%E9%80%94/"/>
+    <id>http://example.com/2022/01/07/XML%E7%9A%84%E7%94%A8%E9%80%94/</id>
+    <published>2022-01-07T14:12:38.000Z</published>
+    <updated>2022-01-07T15:06:49.482Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="XML的用途">XML的用途</h3><blockquote><p>1.Java程序的配置描述文件</p><p>2.用于保存程序的产生的数据</p><p>3.网络间的数据传输</p></blockquote><h3 id="XML的文档结构">XML的文档结构</h3><blockquote><p>1.第一行必须是XML声明</p><p>2.有且只有一个根节点</p><p>3.XML标签的书写规则与HTML相同</p></blockquote><h3 id="XML声明">XML声明</h3><p>XML声明说明XML文档的基本信息，包括版本号与字符集，写在XML第一行。</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot;encoding=&quot;UTF-8&quot;?&gt;</span></span><br></pre></td></tr></table></figure><p>version代表版本号，UTF-8设置字符集，用于支持中文</p><h3 id="XML标签书写规则">XML标签书写规则</h3><blockquote><p>合法的标签名</p><p>​标签名要有意义</p><p>​建议使用英文，小写字母，单词之间用“-”分隔</p><p>​建议多级标签之间不要存在重名的情况</p><p>适当的注释与缩进</p><p>​适当的注释与缩进可以让XML文档更加容易阅读</p><p>合理使用属性</p><p>​标签属性常用于描述标签不可或缺的信息</p><p>​对标签分组或者为标签设置id时常用属性表示</p><p>特殊子符与CDATA标签</p><p>​标签体中，出现&quot;&lt;“,”&gt;&quot;特殊子符，会破坏文档结构</p><p>​解决办法:使用实体引用</p><p>​使用CDATA标签</p><table><thead><tr><th>实体引用</th><th>对应符号</th><th>说明</th></tr></thead><tbody><tr><td>&amp;It ;</td><td>&lt;</td><td>小于</td></tr><tr><td>&amp;gt ;</td><td>&gt;</td><td>大于</td></tr><tr><td>&amp;amp ;</td><td>&amp;</td><td>和号</td></tr><tr><td>&amp;apos ;</td><td>’</td><td>单引号</td></tr><tr><td>&amp;quot ;</td><td>‘’</td><td>双引号</td></tr></tbody></table><p>​CDATA指的是不应由XML解析器进行解析的文本数据</p><p>​从&quot;<![CDATA["开始，到"]]>&quot;结束</p><p>有序的子元素</p></blockquote><h3 id="XML语义约束">XML语义约束</h3><p>XML文档结构正确，但可能不是有效的。</p><p>​例如，员工档案XML中绝不允许出现&quot;植物品种标签&quot;。XML语义约束就是用于规定XML文档中允许出现哪些元素</p><p>XML语义约束有两种定义方式，<strong>DTD</strong>和<strong>XML Schema</strong></p><p><strong>DTD</strong>(Document Type Definition,文档类型定义)是一种简单易用的语义约束方式</p><p><strong>DTD</strong>文件的拓展名为.dtd</p><p>利用<strong>DTD</strong>中的&lt;!ELEMENT&gt;标签，我们可以定义XML文档中允许出现的节点和数量，以hr.xml为例</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">定义hr节点下只允许出现1个employee子节点</span><br><span class="line">&lt;!ELEMENT hr (employee)&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">employee节点下必须包含四个节点，且按顺序出现</span><br><span class="line">&lt;!ELEMENT employee (name,age,salary,department)&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">定义name标签体只能是文本，#PCDATA代表文本元素</span><br><span class="line">&lt;!ELEMENT name (#PCDATA)&gt;</span><br></pre></td></tr></table></figure><p>如某个子节点需要多次重复出现，则需要在子节点后增加响应的描述符</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hr节点下最少出现一个employee节点</span><br><span class="line">&lt;!ELEMENT hr (employee+)&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hr节点下可出现0...n个employee子节点</span><br><span class="line">&lt;!ELEMENT hr (employee*)&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hr节点下最多出现1个employee子节点</span><br><span class="line">&lt;!ELEMENT hr (employee?)&gt;</span><br></pre></td></tr></table></figure><h3 id="XML引用DTD文件">XML引用DTD文件</h3><p>在XML中使用&lt;!DOCTYPE&gt;标签来引用DTD文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">书写格式</span><br><span class="line">&lt;!DOCTYPE 根节点 SYSTEM &quot;dtd文件路径&quot;&gt;</span><br><span class="line">示例:</span><br><span class="line">&lt;!DOCTYPE hr SYSTEM &quot;hr.dtd&quot;&gt;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;XML的用途&quot;&gt;XML的用途&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;1.Java程序的配置描述文件&lt;/p&gt;
+&lt;p&gt;2.用于保存程序的产生的数据&lt;/p&gt;
+&lt;p&gt;3.网络间的数据传输&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;XML的文档结构&quot;&gt;XML的</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java并发基础</title>
+    <link href="http://example.com/2022/01/07/Java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/"/>
+    <id>http://example.com/2022/01/07/Java%E5%B9%B6%E5%8F%91%E5%9F%BA%E7%A1%80/</id>
+    <published>2022-01-07T08:10:47.000Z</published>
+    <updated>2022-01-07T08:21:09.072Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="什么是线程和进程">什么是线程和进程</h3><p><strong>进程是程序的一次执行过程</strong>，<strong>是系统运行程序的基本单位</strong>，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。在 Java 中，当我们启动 main 函数时其实就是启动了一个 JVM 的进程，而 main 函数所在的线程就是这个进程中的一个线程，也称主线程。在 windows 中通过查看任务管理器的方式，我们就可以清楚看到 window 当前运行的进程（.exe 文件的运行）。</p><p>线程与进程相似，但线程是一个比进程更小的执行单位。一个进程在其执行的过程中可以产生多个线程。与进程不同的是同类的多个线程共享进程的<strong>堆</strong>和<strong>方法区</strong>资源，但每个线程有自己的<strong>程序计数器</strong>、<strong>虚拟机栈</strong>和<strong>本地方法栈</strong>，所以系统在产生一个线程，或是在各个线程之间作切换工作时，负担要比进程小得多，也正因为如此，线程也被称为轻量级进程。</p><p><strong>一个 Java 程序的运行是 main 线程和多个其他线程同时运行</strong>。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;什么是线程和进程&quot;&gt;什么是线程和进程&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;进程是程序的一次执行过程&lt;/strong&gt;，&lt;strong&gt;是系统运行程序的基本单位&lt;/strong&gt;，因此进程是动态的。系统运行一个程序即是一个进程从创建，运行到消亡的过程。在 Java 中，</summary>
+      
+    
+    
+    
+    <category term="Java基础" scheme="http://example.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>DML-数据库定义语言</title>
@@ -175,7 +224,7 @@
     <link href="http://example.com/2022/01/06/%E5%92%8Cequals/"/>
     <id>http://example.com/2022/01/06/%E5%92%8Cequals/</id>
     <published>2022-01-06T08:13:13.000Z</published>
-    <updated>2022-01-06T08:56:37.262Z</updated>
+    <updated>2022-01-07T15:08:28.527Z</updated>
     
     <content type="html"><![CDATA[<h3 id="">==</h3><blockquote><p>==对于基本数据类型来说，比较的是数据的值</p><p>==对于引用数据类型来说，比较的是对象的内存地址</p></blockquote><h3 id="equals">equals()</h3><blockquote><p>不能用于判断基本数据类型的变量，只能用来判断两个对象是否相等。<code>equals()</code>方法存在于<code>Object</code>类中，而<code>Object</code>类是所有类的直接或间接父类。</p></blockquote><p>equals()方法存在两种使用情况:</p><p><strong>类没有覆盖equals()方法</strong>:通过equals()方法比较该类的两个对象时，等价于通过&quot;==&quot;比较这两个对象。使用的默认是<strong>Object</strong>类的**equals()**方法</p><p><strong>类覆盖了equals()方法</strong>:一般我们都覆盖 <code>equals()</code>方法来比较两个对象中的属性是否相等；若它们的属性相等，则返回 true(即，认为这两个对象相等)。</p><p><code>String</code> 中的 <code>equals</code> 方法是被重写过的，因为 <code>Object</code> 的 <code>equals</code> 方法是比较的对象的内存地址，而 <code>String</code> 的 <code>equals</code> 方法比较的是对象的值。</p><p>当创建 <code>String</code> 类型的对象时，虚拟机会在常量池中查找有没有已经存在的值和要创建的值相同的对象，如果有就把它赋给当前引用。如果没有就在常量池中重新创建一个 <code>String</code> 对象。</p>]]></content>
     
@@ -192,6 +241,8 @@
       
     
     
+    
+    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
     
     
   </entry>
@@ -279,7 +330,7 @@
     <link href="http://example.com/2022/01/04/Comparator%E5%AF%B9%E5%AF%B9%E8%B1%A1%E6%8C%89%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97/"/>
     <id>http://example.com/2022/01/04/Comparator%E5%AF%B9%E5%AF%B9%E8%B1%A1%E6%8C%89%E5%8D%87%E5%BA%8F%E6%8E%92%E5%88%97/</id>
     <published>2022-01-04T13:44:09.000Z</published>
-    <updated>2022-01-04T13:59:50.387Z</updated>
+    <updated>2022-01-07T15:10:24.612Z</updated>
     
     <content type="html"><![CDATA[<h3 id="利用Comparator对对象按升序排列">利用Comparator对对象按升序排列</h3><p><strong>Comparator</strong>可以强行对某个对象进行整体排序的比较函数</p><p>可以将<strong>Comparator</strong>传递给<strong>sort</strong>方法(<strong>Collections.sort</strong>或者<strong>Arrays.sort</strong>)</p><p>例:对宠物猫对象按名字升序进行排列</p><p>宠物猫类：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Cat</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> age;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Cat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = <span class="string">&quot;zhangsan&quot;</span>;</span><br><span class="line">        <span class="keyword">this</span>.age = <span class="number">12</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Cat&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;name=&#x27;&quot;</span> + name + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, age=&quot;</span> + age +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>NameCoparator实现了Comparator接口的代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Comparator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NameCoparator</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Cat</span>&gt; </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Cat o1,Cat o2)</span></span>&#123;</span><br><span class="line">        <span class="comment">//如果name1&lt;name2返回负整数</span></span><br><span class="line">        <span class="comment">//如果name1=name2返回0</span></span><br><span class="line">        <span class="comment">//如果name1&gt;name2返回正整数</span></span><br><span class="line">        String name1 = o1.name;</span><br><span class="line">        String name2 = o2.name;</span><br><span class="line">        <span class="keyword">int</span> n = name1.compareTo(name2);</span><br><span class="line">        <span class="keyword">return</span> n;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>测试类：</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Collection;</span><br><span class="line"><span class="keyword">import</span> java.util.Collections;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CatTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//按名字升序进行排列</span></span><br><span class="line">        Cat cat1 = <span class="keyword">new</span> Cat(<span class="string">&quot;huahua&quot;</span>, <span class="number">5</span>);</span><br><span class="line">        Cat cat2 = <span class="keyword">new</span> Cat(<span class="string">&quot;fanfan&quot;</span>, <span class="number">6</span>);</span><br><span class="line">        Cat cat3 = <span class="keyword">new</span> Cat(<span class="string">&quot;xixi&quot;</span>, <span class="number">4</span>);</span><br><span class="line">        List&lt;Cat&gt; list = <span class="keyword">new</span> ArrayList&lt;Cat&gt;();</span><br><span class="line">        list.add(cat1);</span><br><span class="line">        list.add(cat2);</span><br><span class="line">        list.add(cat3);</span><br><span class="line">        System.out.print(<span class="string">&quot;排序前的数组:&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(Cat e:list)&#123;</span><br><span class="line">            System.out.print(e+<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        Collections.sort(list,<span class="keyword">new</span> NameCoparator());</span><br><span class="line">        System.out.print(<span class="string">&quot;排序后的数组:&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span>(Cat e:list)&#123;</span><br><span class="line">            System.out.print(e+<span class="string">&quot;  &quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>输出:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前的数组:Cat&#123;name=&#x27;huahua&#x27;, age=5&#125;  Cat&#123;name=&#x27;fanfan&#x27;, age=6&#125;  Cat&#123;name=&#x27;xixi&#x27;, age=4&#125;  </span><br><span class="line">排序后的数组:Cat&#123;name=&#x27;fanfan&#x27;, age=6&#125;  Cat&#123;name=&#x27;huahua&#x27;, age=5&#125;  Cat&#123;name=&#x27;xixi&#x27;, age=4&#125;  </span><br></pre></td></tr></table></figure>]]></content>
     
@@ -293,7 +344,7 @@
     
     
     
-    <category term="Java基础" scheme="http://example.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
     
     
   </entry>
@@ -326,7 +377,7 @@
     <link href="http://example.com/2022/01/04/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/"/>
     <id>http://example.com/2022/01/04/%E9%9D%99%E6%80%81%E6%96%B9%E6%B3%95/</id>
     <published>2022-01-04T05:52:46.000Z</published>
-    <updated>2022-01-04T06:01:01.930Z</updated>
+    <updated>2022-01-07T15:08:51.476Z</updated>
     
     <content type="html"><![CDATA[<h3 id="静态方法和实例方法的区别">静态方法和实例方法的区别</h3><h4 id="调用方式">调用方式</h4><p>​在外部调用方法时，可以使用<strong>类名.方法名</strong>，也可以使用<strong>对象.方法名</strong>，而实例方法只有后面这种方式。也就是说，调用<strong>静态方法无需创建实例对象</strong>。</p><p>​不过，需要注意的是一般不建议使用<strong>对象.方法名</strong>的方式来调用静态方法。这种方式非常容易造成混淆，<strong>静态方法不属于类的某个对象而是属于这个类</strong>。</p><p>​因此，一般建议使用<strong>类名.方法名</strong>的方式来调用静态方法。</p><h3 id="静态方法为什么不能调用非静态成员">静态方法为什么不能调用非静态成员</h3><p>这个需要结合<strong>JVM</strong>的相关知识，主要原因如下：</p><ol><li>静态方法是属于类的，在类加载的时候就会分配内存，可以通过类名直接访问。而非静态成员属于实例对象，只有在对象实例化之后才存在，需要通过类的实例对象去访问。</li><li>在类的非静态成员不存在的时候静态成员就已经存在了，此时调用在内存中还不存在的非静态成员，属于非法操作。</li></ol>]]></content>
     
@@ -340,7 +391,7 @@
     
     
     
-    <category term="Java基础" scheme="http://example.com/categories/Java%E5%9F%BA%E7%A1%80/"/>
+    <category term="JavaSE" scheme="http://example.com/categories/JavaSE/"/>
     
     
   </entry>
@@ -460,55 +511,6 @@
     
     
     <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>django项目结构II</title>
-    <link href="http://example.com/2022/01/03/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84II/"/>
-    <id>http://example.com/2022/01/03/django%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84II/</id>
-    <published>2022-01-03T12:45:22.000Z</published>
-    <updated>2022-01-03T13:15:36.569Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="settings-py配置项">settings.py配置项</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">BASE_DIR:项目绝对路径</span><br><span class="line">DEBUG:</span><br><span class="line">#启动模式</span><br><span class="line">#True-调试模式</span><br><span class="line">1.检测代码改动后，立即重启服务</span><br><span class="line">2.报错页面</span><br><span class="line">#False-正式启动模式/上线模式</span><br><span class="line">ROOT_URLCONF:主路由位置</span><br><span class="line">TIME_ZONE:时间戳</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;settings-py配置项&quot;&gt;settings.py配置项&lt;/h3&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/spa</summary>
-      
-    
-    
-    
-    <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>翻转二叉树</title>
-    <link href="http://example.com/2022/01/03/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    <id>http://example.com/2022/01/03/%E7%BF%BB%E8%BD%AC%E4%BA%8C%E5%8F%89%E6%A0%91/</id>
-    <published>2022-01-03T09:47:48.000Z</published>
-    <updated>2022-01-03T09:50:09.218Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>翻转一棵二叉树。</p></blockquote><blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     4</span><br><span class="line">   /   \</span><br><span class="line">  2     7</span><br><span class="line"> / \   / \</span><br><span class="line">1   3 6   9</span><br></pre></td></tr></table></figure></blockquote><blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">     4</span><br><span class="line">   /   \</span><br><span class="line">  7     2</span><br><span class="line"> / \   / \</span><br><span class="line">9   6 3   1</span><br></pre></td></tr></table></figure></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"> * public class TreeNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     TreeNode left;</span></span><br><span class="line"><span class="comment"> *     TreeNode right;</span></span><br><span class="line"><span class="comment"> *     TreeNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     TreeNode(int val, TreeNode left, TreeNode right) &#123;</span></span><br><span class="line"><span class="comment"> *         this.val = val;</span></span><br><span class="line"><span class="comment"> *         this.left = left;</span></span><br><span class="line"><span class="comment"> *         this.right = right;</span></span><br><span class="line"><span class="comment"> *     &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> TreeNode <span class="title">invertTree</span><span class="params">(TreeNode root)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//base</span></span><br><span class="line">        <span class="keyword">if</span>(root==<span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">//前序遍历</span></span><br><span class="line">        TreeNode temp = root.left;</span><br><span class="line">        root.left = root.right;</span><br><span class="line">        root.right = temp;</span><br><span class="line"></span><br><span class="line">        invertTree(root.left);</span><br><span class="line">        invertTree(root.right);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> root;</span><br><span class="line">    &#125;   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;翻转一棵二叉树。&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;</summary>
-      
-    
-    
-    
-    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
     
     
   </entry>
