@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-07T15:06:49.482Z</updated>
+  <updated>2022-01-08T12:55:46.395Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,58 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>判断回文单链表</title>
+    <link href="http://example.com/2022/01/08/%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E5%8D%95%E9%93%BE%E8%A1%A8/"/>
+    <id>http://example.com/2022/01/08/%E5%88%A4%E6%96%AD%E5%9B%9E%E6%96%87%E5%8D%95%E9%93%BE%E8%A1%A8/</id>
+    <published>2022-01-08T12:42:47.000Z</published>
+    <updated>2022-01-08T12:55:46.395Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="判断回文单链表">判断回文单链表</h3><blockquote><p>给定一个链表的 <strong>头节点</strong> <code>head</code> **，**请判断其是否为回文链表。</p><p>如果一个链表是回文，那么链表节点序列从前往后看和从后往前看是相同的。</p></blockquote><blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入: head = [1,2,3,3,2,1]</span><br><span class="line">输出: true</span><br></pre></td></tr></table></figure></blockquote><p>思路:刚开始的思路是新建一个链表，然后反转该链表，然后两个指针从前往后遍历，比较每个节点的值。如果相等则返回true，不相等则false。</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">ListNode left;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPalindrome</span><span class="params">(ListNode head)</span> </span>&#123;</span><br><span class="line">        left = head;</span><br><span class="line">        <span class="keyword">return</span> Palindrome(head);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">Palindrome</span><span class="params">(ListNode right)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(right == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Boolean res = Palindrome(right.next);</span><br><span class="line">        <span class="comment">//后续遍历</span></span><br><span class="line">        res = res&amp;&amp;(right.val==left.val);</span><br><span class="line">        left = left.next;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;判断回文单链表&quot;&gt;判断回文单链表&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给定一个链表的 &lt;strong&gt;头节点&lt;/strong&gt; &lt;code&gt;head&lt;/code&gt; **，**请判断其是否为回文链表。&lt;/p&gt;
+&lt;p&gt;如果一个链表是回文，那么链表节点序列从前往后</summary>
+      
+    
+    
+    
+    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>最长回文子串</title>
+    <link href="http://example.com/2022/01/08/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/"/>
+    <id>http://example.com/2022/01/08/%E6%9C%80%E9%95%BF%E5%9B%9E%E6%96%87%E4%B8%B2/</id>
+    <published>2022-01-08T11:19:39.000Z</published>
+    <updated>2022-01-08T11:27:11.481Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="最长回文子串">最长回文子串</h3><blockquote><p>给你一个字符串 <code>s</code>，找到 <code>s</code> 中最长的回文子串。</p></blockquote><blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：s = &quot;babad&quot;</span><br><span class="line">输出：&quot;bab&quot;</span><br><span class="line">解释：&quot;aba&quot; 同样是符合题意的答案。</span><br></pre></td></tr></table></figure></blockquote><p>思路:</p><p>1.中心扩散法：定义两个指针，每次向外扩散一个字符，判断两个字符是否相等，直到遍历到最后一个节点或者最前面的节点。这里需要注意，如果该回文串是奇数。那么中间子符为一个，如果为偶数，则中间子符为两个。下面是代码</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">longestPalindrome</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        String res = s.substring(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.length();i++)&#123;</span><br><span class="line">            <span class="comment">//找到以i为中心的回文子串</span></span><br><span class="line">            String len1 = Palindrome(s,i,i);</span><br><span class="line">            <span class="comment">//找到以i+1为中心的回文子串</span></span><br><span class="line">            String len2 = Palindrome(s,i,i+<span class="number">1</span>);</span><br><span class="line">            res = res.length()&gt;=len1.length()?res:len1;</span><br><span class="line">            res = res.length()&gt;=len2.length()?res:len2;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">Palindrome</span><span class="params">(String s,<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span>(l&gt;=<span class="number">0</span>&amp;&amp;r&lt;s.length()&amp;&amp;s.charAt(l)==s.charAt(r))&#123;</span><br><span class="line">            l--;r++;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s.substring(l+<span class="number">1</span>,r);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;最长回文子串&quot;&gt;最长回文子串&lt;/h3&gt;
+&lt;blockquote&gt;
+&lt;p&gt;给你一个字符串 &lt;code&gt;s&lt;/code&gt;，找到 &lt;code&gt;s&lt;/code&gt; 中最长的回文子串。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;figure class=</summary>
+      
+    
+    
+    
+    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>XML</title>
@@ -461,56 +513,6 @@
     
     
     <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>路由配置I</title>
-    <link href="http://example.com/2022/01/03/%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AEI/"/>
-    <id>http://example.com/2022/01/03/%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AEI/</id>
-    <published>2022-01-03T14:01:33.000Z</published>
-    <updated>2022-01-04T04:07:36.681Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote><p>path()函数</p><p>导入-from django.urls import path</p><p>语法-path(route,views,name=None)</p><p>参数:</p><p>1.route:字符串类型，匹配的请求路径</p><p>2.views:指定路径所对应的视图处理函数的名称</p><p><a href="http://3.name">3.name</a>:为地址起别名，在模板中地址反向解析时使用</p></blockquote><h3 id="path转换器">path转换器</h3><p>语法:&lt; 转换器类型:自定义名 &gt;</p><p>作用:如果转换器类型匹配到对应类型的数据，则将数据按照关键字传参的方式传递给视图函数。</p><p>例子:path(‘page/&lt; int:page &gt;’,<a href="http://views.xxx">views.xxx</a>)</p><h3 id="转换器类型">转换器类型</h3><table><thead><tr><th>转换器类型</th><th>作用</th><th>样例</th></tr></thead><tbody><tr><td>str</td><td>匹配除了’/'之外的非空字符串</td><td>“v1/users/&lt; str:username &gt;”匹配</td></tr><tr><td>int</td><td>匹配除了0或者任何正整数，返回一个int</td><td>&quot;page/&lt; int:page &gt;&quot;匹配/page/100</td></tr><tr><td>slug</td><td>匹配任意由ASCII字母或数字以及连字符组成的短标签</td><td>&quot;detail/&lt; slug:sl &gt;&quot;匹配/detail/this-is-django</td></tr><tr><td>path</td><td>匹配非空字符串，包括路径分隔符</td><td>&quot;v1/users/&lt; path:ph &gt;&quot;匹配/v1/goods/a/b/c</td></tr></tbody></table>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;blockquote&gt;
-&lt;p&gt;path()函数&lt;/p&gt;
-&lt;p&gt;导入	-from django.urls import path&lt;/p&gt;
-&lt;p&gt;语法	-path(route,views,name=None)&lt;/p&gt;
-&lt;p&gt;参数:&lt;/p&gt;
-&lt;p&gt;1.route:字符串类型，匹配的请</summary>
-      
-    
-    
-    
-    <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>url和视窗函数</title>
-    <link href="http://example.com/2022/01/03/url%E5%92%8C%E8%A7%86%E7%AA%97%E5%87%BD%E6%95%B0/"/>
-    <id>http://example.com/2022/01/03/url%E5%92%8C%E8%A7%86%E7%AA%97%E5%87%BD%E6%95%B0/</id>
-    <published>2022-01-03T13:16:31.000Z</published>
-    <updated>2022-01-03T14:00:57.347Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="URL结构">URL结构</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protocol://hostname[:port]/path[?query][#fragment]</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">http通过HTTP访问该资源</span><br><span class="line">https通过安全的HTTPS访问该资源</span><br><span class="line">file资源是本地计算机的文件格式:file://</span><br><span class="line">hostname(主机名)</span><br><span class="line">端口号:默认80端口</span><br><span class="line">path路由地址</span><br><span class="line">query查询字符串，可由多个参数，用&quot;&amp;&quot;符号隔开</span><br></pre></td></tr></table></figure><blockquote><p>浏览器地址栏-&gt;<a href="http://127.0.0.1:8000/page/2003">http://127.0.0.1:8000/page/2003</a></p></blockquote><blockquote><p>1.Django从配置文件中根据ROOT__URLCONF找到主路由文件；默认情况下，该文件在项目同名目录下的urls；例如mysite/mysite/urls.py</p><p>2.Django加载主路由文件中的urlpatterns变量[包括很多路由的数组]</p><p>3.依次匹配urlpatterns中的path，匹配到第一个合适的中断后续匹配(顺序匹配)</p><p>4.匹配成功-调用对应的视图函数处理请求，返回响应</p><p>5.匹配失败，返回404</p></blockquote><p>例如，在新建的一个django项目中，urls.py文件如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">&#x27;admin/&#x27;</span>, admin.site.urls),</span><br><span class="line">    <span class="comment">#http://127.0.0.1:8000/page/2003/</span></span><br><span class="line">    <span class="comment">#其中,page/2003即为所配置路由</span></span><br><span class="line">    path(<span class="string">&#x27;page/2003/&#x27;</span>,views.page_2003)</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h3 id="视图函数">视图函数</h3><p>​视图函数是用于接收一个浏览器请求(HttpRequest对象)并通过HttpResponse对象返回响应的函数。此函数可以接收浏览器请求并根据业务逻辑返回相应的响应内容给浏览器</p><p>语法</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">XXX_view</span>(<span class="params">request[,其他参数...]</span>)</span></span><br><span class="line"><span class="function"><span class="title">return</span> <span class="title">HttpResponse</span>对象</span></span><br></pre></td></tr></table></figure><p>例：</p><p>我们在上面定义了<strong>page/2003/<strong>的路由，我们在同名目录下直接定义</strong><a href="http://views.py">views.py</a></strong>文件，通过访问<strong><a href="http://127.0.0.1:8000/page/2003/">http://127.0.0.1:8000/page/2003/</a><strong>即可得到views.py文件下定义的</strong>views.page_2003</strong>视图</p><p>views.py文件如下</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.http <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">page_2003_view</span>(<span class="params">request</span>):</span></span><br><span class="line">    html = <span class="string">&quot;&lt;h1&gt;这是第一个页面&lt;/h1&gt;&quot;</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(html)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;URL结构&quot;&gt;URL结构&lt;/h3&gt;
-&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;</summary>
-      
-    
-    
-    
-    <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
