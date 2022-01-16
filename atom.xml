@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-16T08:51:20.548Z</updated>
+  <updated>2022-01-16T16:58:08.918Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,43 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>JQuery与Ajax</title>
+    <link href="http://example.com/2022/01/17/JQuery%E4%B8%8EAjax/"/>
+    <id>http://example.com/2022/01/17/JQuery%E4%B8%8EAjax/</id>
+    <published>2022-01-16T16:21:15.000Z</published>
+    <updated>2022-01-16T16:58:08.918Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="JavaScipt库">JavaScipt库</h3><p>为了简化JavaScript开发，第三方厂商开发了JavaScript库</p><table><thead><tr><th>主流JavaScript库</th><th></th></tr></thead><tbody><tr><td>jQuery</td><td></td></tr><tr><td>Vue.js</td><td></td></tr><tr><td>AngularJS</td><td></td></tr><tr><td>React</td><td></td></tr><tr><td>…</td><td></td></tr></tbody></table><p>jQuery是一个轻量级JS库，使用十分简单</p><p>jQuery的核心是选择器，用于获取页面元素</p><p>jQuery提供了大量高效方法，开发速度大幅提升</p><h3 id="jQuery选择器">jQuery选择器</h3><h4 id="引入jQuery">引入jQuery</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;js/jquery-3.3.1.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure><h4 id="对超链接增加CSS类">对超链接增加CSS类</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$(&quot;a&quot;).addclass(&quot;highlight&quot;)</span><br><span class="line">a为选择器表达式</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var selector = document.getElementById(&quot;txtSelector&quot;).value;</span><br><span class="line">$(&quot;*&quot;).removeClass(&quot;highlight&quot;);</span><br><span class="line">$&#123;selector&#125;.addClass(&quot;highlight&quot;);</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;JavaScipt库&quot;&gt;JavaScipt库&lt;/h3&gt;
+&lt;p&gt;为了简化JavaScript开发，第三方厂商开发了JavaScript库&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;主流JavaScript库&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;/tr&gt;
+</summary>
+      
+    
+    
+    
+    <category term="JavaEE" scheme="http://example.com/categories/JavaEE/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>JSON入门</title>
     <link href="http://example.com/2022/01/16/JSON%E5%85%A5%E9%97%A8/"/>
     <id>http://example.com/2022/01/16/JSON%E5%85%A5%E9%97%A8/</id>
     <published>2022-01-16T08:22:54.000Z</published>
-    <updated>2022-01-16T08:51:20.548Z</updated>
+    <updated>2022-01-16T16:20:13.166Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="JSON-介绍">JSON 介绍</h3><p>JavaScript Object Notation(JavaScript对象表示法)</p><p>JSON是轻量级的文本数据交换格式</p><p>JSON独立于语言，具有自我描述性，更易理解</p><h3 id="JSON语法规则">JSON语法规则</h3><p>数据由键(key)/值(value)描述，由逗号分隔</p><p>大括号代表一个完整的对象，拥有多个键值对</p><p>中括号表示数组，多个对象之间使用逗号分隔</p><p><strong>JSON中键和值都要拿&quot;&quot;分隔</strong></p><h3 id="利用JSON存储员工信息表">利用JSON存储员工信息表</h3>]]></content>
+    <content type="html"><![CDATA[<h3 id="JSON-介绍">JSON 介绍</h3><p>JavaScript Object Notation(JavaScript对象表示法)</p><p>JSON是轻量级的文本数据交换格式</p><p>JSON独立于语言，具有自我描述性，更易理解</p><h3 id="JSON语法规则">JSON语法规则</h3><p>数据由键(key)/值(value)描述，由逗号分隔</p><p>大括号代表一个完整的对象，拥有多个键值对</p><p>中括号表示数组，多个对象之间使用逗号分隔</p><p><strong>JSON中键和值都要拿&quot;&quot;分隔</strong></p><h3 id="利用JSON存储员工信息表">利用JSON存储员工信息表</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;empno&quot;</span>: <span class="number">7369</span>,</span><br><span class="line">    <span class="attr">&quot;ename&quot;</span>: <span class="string">&quot;张三&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job&quot;</span>: <span class="string">&quot;软件工程师&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;salary&quot;</span>: <span class="number">13000</span>,</span><br><span class="line">    <span class="attr">&quot;hiredate&quot;</span>: <span class="string">&quot;2017-05-12&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dname&quot;</span>: <span class="string">&quot;研发部&quot;</span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">&quot;empno&quot;</span>: <span class="number">7499</span>,</span><br><span class="line">    <span class="attr">&quot;ename&quot;</span>: <span class="string">&quot;李斯&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;job&quot;</span>: <span class="string">&quot;客户经理&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;salary&quot;</span>: <span class="number">10000</span>,</span><br><span class="line">    <span class="attr">&quot;hiredate&quot;</span>: <span class="string">&quot;2016-05-12&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;dname&quot;</span>: <span class="string">&quot;市场部&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">]</span><br></pre></td></tr></table></figure><h3 id="利用Javascript输出JSON">利用Javascript输出JSON</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(json);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;json.length;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> emp = json[i];</span><br><span class="line">            <span class="built_in">document</span>.write(<span class="string">&quot;&lt;h1&gt;&quot;</span>);</span><br><span class="line">            <span class="built_in">document</span>.write(emp.empno);</span><br><span class="line">            <span class="built_in">document</span>.write(<span class="string">&quot;,&quot;</span>+emp.ename);</span><br><span class="line">            <span class="built_in">document</span>.write(<span class="string">&quot;,&quot;</span>+emp.job);</span><br><span class="line">            <span class="built_in">document</span>.write(<span class="string">&quot;,&quot;</span>+emp.dname);</span><br><span class="line">            <span class="built_in">document</span>.write(<span class="string">&quot;&lt;/h1&gt;&quot;</span>);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure><h3 id="JSON与字符串互相转换">JSON与字符串互相转换</h3><p>JSON.parse()方法将字符串转换为JSON对象</p><p>JSON.stringify()方法将JSON对象转换为字符串</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var str = &quot;&#123;\&quot;class_name\&quot;:\&quot;五年级三班\&quot;&#125;&quot;;</span><br><span class="line">        var json = JSON.parse(str);</span><br><span class="line">        console.log(str);</span><br><span class="line">        console.log(json);</span><br><span class="line">        document.write(&quot;班级:&quot;+json.class_name)</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">        var json =</span><br><span class="line">            &#123;&quot;class_name&quot;:&quot;五年级四班&quot;&#125;</span><br><span class="line">        var str1 = JSON.stringify(json);</span><br><span class="line">        console.info(json)</span><br><span class="line">        console.info(str1)</span><br><span class="line">        var json2=&#123;&#125;;</span><br><span class="line">        json2.className = &quot;五年级五班&quot;;</span><br><span class="line">        json2.floor = &quot;逸夫楼四层&quot;;</span><br><span class="line">        console.log(json2);</span><br><span class="line">    &lt;/script&gt;</span><br></pre></td></tr></table></figure><h3 id="JSON与Java之间的交互">JSON与Java之间的交互</h3><p>Java的JSON工具包还有FastJson，Jackson，Gson，Json-lib…</p><p>FastJson是阿里巴巴著名的JSON序列化与反序列化工具包</p><p>FastJson国内拥有大量使用者</p><h3 id="JSON序列化和反序列化">JSON序列化和反序列化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FastJsonSample1</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Employee employee = <span class="keyword">new</span> Employee();</span><br><span class="line">        employee.setEmpno(<span class="number">4488</span>);</span><br><span class="line">        employee.setEname(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">        employee.setJob(<span class="string">&quot;软件工程师&quot;</span>);</span><br><span class="line">        employee.setSalary(<span class="number">10000f</span>);</span><br><span class="line">        employee.setDname(<span class="string">&quot;技术部&quot;</span>);</span><br><span class="line">        Calendar c = Calendar.getInstance();</span><br><span class="line">        c.set(<span class="number">2017</span>,<span class="number">0</span>,<span class="number">30</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line">        employee.setHdate(c.getTime());</span><br><span class="line">        <span class="comment">//FastJSON提供了JSON对象，完成对象与JSON字符串的相互转换</span></span><br><span class="line">        String json = JSON.toJSONString(employee);</span><br><span class="line">        System.out.println(json);</span><br><span class="line">        <span class="comment">//将JSON转换为对象</span></span><br><span class="line">        Employee emp = JSON.parseObject(json, Employee.class);</span><br><span class="line">        System.out.println(emp.getEname());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="FastJSON对象数组序列化与反序列化">FastJSON对象数组序列化与反序列化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">String json = JSON.toJSONString(list);</span><br><span class="line">        System.out.println(json);</span><br><span class="line">        List&lt;Employee&gt; employees = JSON.parseArray(json, Employee.class);</span><br><span class="line">        <span class="keyword">for</span> (Employee e:employees)&#123;</span><br><span class="line">            System.out.print(e.getEname()+<span class="string">&quot; &quot;</span>+e.getEmpno());</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>]]></content>
     
     
       
@@ -482,30 +512,6 @@
     
     
     <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>GET请求和POST请求</title>
-    <link href="http://example.com/2022/01/06/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82/"/>
-    <id>http://example.com/2022/01/06/GET%E8%AF%B7%E6%B1%82%E5%92%8CPOST%E8%AF%B7%E6%B1%82/</id>
-    <published>2022-01-06T14:26:24.000Z</published>
-    <updated>2022-01-06T15:19:21.164Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="定义">定义</h3><p>无论是<strong>GET</strong>还是<strong>POST</strong>，统一由视图函数接收请求，通过判断<strong>request.method</strong>区分具体的请求动作</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if request.method == &#x27;GET&#x27;:</span><br><span class="line">处理GET请求时的业务逻辑</span><br><span class="line">elif request.method == &#x27;POST&#x27;:</span><br><span class="line">处理POST请求时的业务逻辑</span><br><span class="line">else:</span><br><span class="line">其他请求业务逻辑</span><br></pre></td></tr></table></figure><h3 id="GET请求">GET请求</h3><p><strong>GET</strong>请求动作，一般用于向服务器获取数据</p><p>能够产生<strong>GET</strong>请求的场景</p><p>​-浏览器地址栏输入URL，回车后</p><p>​-<a href="地址?参数=值&参数=值"></p><p>​-form表单中的method为GET</p><p><strong>GET</strong>请求方式中，如果有数据需要传给服务器，通常会用查询字符串(Query String)传递[不要传递敏感数据]</p><p>URL格式:xxx?参数1:值1&amp;参数2:值2</p><p>​-如:<a href="http://127.0.0.1/page1?a=100&amp;b=200">http://127.0.0.1/page1?a=100&amp;b=200</a></p><p>服务器端接收数据</p><p>​获取客户端请求GET请求提交的数据</p><h4 id="方法实例">方法实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">request.GET[<span class="string">&#x27;参数名&#x27;</span>]</span><br><span class="line">request.GET(<span class="string">&#x27;参数名&#x27;</span>,<span class="string">&#x27;默认值&#x27;</span>)</span><br><span class="line">request.GET.getlist(<span class="string">&#x27;参数名&#x27;</span>)</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;定义&quot;&gt;定义&lt;/h3&gt;
-&lt;p&gt;无论是&lt;strong&gt;GET&lt;/strong&gt;还是&lt;strong&gt;POST&lt;/strong&gt;，统一由视图函数接收请求，通过判断&lt;strong&gt;request.method&lt;/strong&gt;区分具体的请求动作&lt;/p&gt;
-&lt;figure c</summary>
-      
-    
-    
-    
-    <category term="django学习" scheme="http://example.com/categories/django%E5%AD%A6%E4%B9%A0/"/>
     
     
   </entry>
