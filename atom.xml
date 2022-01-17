@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-16T16:58:08.918Z</updated>
+  <updated>2022-01-17T04:22:15.165Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>扁平化嵌套列表迭代器</title>
+    <link href="http://example.com/2022/01/17/%E6%89%81%E5%B9%B3%E5%8C%96%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8%E8%BF%AD%E4%BB%A3%E5%99%A8/"/>
+    <id>http://example.com/2022/01/17/%E6%89%81%E5%B9%B3%E5%8C%96%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8%E8%BF%AD%E4%BB%A3%E5%99%A8/</id>
+    <published>2022-01-17T04:01:21.000Z</published>
+    <updated>2022-01-17T04:22:15.165Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>给你一个嵌套的整数列表 nestedList 。每个元素要么是一个整数，要么是一个列表；该列表的元素也可能是整数或者是其他列表。请你实现一个迭代器将其扁平化，使之能够遍历这个列表中的所有整数。</p><p>实现扁平迭代器类 NestedIterator ：</p><p>NestedIterator(List<NestedInteger> nestedList) 用嵌套列表 nestedList 初始化迭代器。<br>int next() 返回嵌套列表的下一个整数。<br>boolean hasNext() 如果仍然存在待迭代的整数，返回 true ；否则，返回 false 。</p></blockquote><p>本题的函数签名如下，首先思考，本题应该是一个N叉树问题</p><p>我们应该去遍历这个N叉树的叶子节点</p><p>比如说，该题输入为**[[1,1],2,[1,1]]**，那么二叉树的结构如下</p><p><img src="D:%5Cthy123%5Csource%5Cimg%5C9.jpg" alt=""></p><p>源代码如下:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NestedIterator</span> <span class="keyword">implements</span> <span class="title">Iterator</span>&lt;<span class="title">Integer</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Iterator&lt;Integer&gt; it;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">NestedIterator</span><span class="params">(List&lt;NestedInteger&gt; nestedList)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//声明一个ArrayList用来存放压平的数组</span></span><br><span class="line">        List&lt;Integer&gt; result = <span class="keyword">new</span> ArrayList&lt;Integer&gt;();</span><br><span class="line">        <span class="comment">//以每个根节点为root</span></span><br><span class="line">        <span class="keyword">for</span>(NestedInteger root:nestedList)&#123;</span><br><span class="line">            traverse(root,result);</span><br><span class="line">        &#125;</span><br><span class="line">        it = result.iterator();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">next</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> it.next();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasNext</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> it.hasNext();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">traverse</span><span class="params">(NestedInteger root,List&lt;Integer&gt; result)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root.isInteger())&#123;</span><br><span class="line">            result.add(root.getInteger());</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(NestedInteger r:root.getList())&#123;</span><br><span class="line">            traverse(r,result);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;给你一个嵌套的整数列表 nestedList 。每个元素要么是一个整数，要么是一个列表；该列表的元素也可能是整数或者是其他列表。请你实现一个迭代器将其扁平化，使之能够遍历这个列表中的所有整数。&lt;/p&gt;
+&lt;p&gt;实现扁平迭代器类 NestedItera</summary>
+      
+    
+    
+    
+    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>JQuery与Ajax</title>
@@ -486,32 +510,6 @@
     
     
     <category term="MySQL" scheme="http://example.com/categories/MySQL/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>K个一组反转链表</title>
-    <link href="http://example.com/2022/01/07/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"/>
-    <id>http://example.com/2022/01/07/K%E4%B8%AA%E4%B8%80%E7%BB%84%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/</id>
-    <published>2022-01-07T04:24:03.000Z</published>
-    <updated>2022-01-07T04:28:54.946Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="K个一组反转链表">K个一组反转链表</h3><blockquote><p>给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。</p><p>k 是一个正整数，它的值小于或等于链表的长度。</p><p>如果节点总数不是 k 的整数倍，那么请将最后剩余的节点保持原有顺序。</p></blockquote><blockquote><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：head = [1,2,3,4,5], k = 2</span><br><span class="line">输出：[2,1,4,3,5]</span><br></pre></td></tr></table></figure></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Definition for singly-linked list.</span></span><br><span class="line"><span class="comment"> * public class ListNode &#123;</span></span><br><span class="line"><span class="comment"> *     int val;</span></span><br><span class="line"><span class="comment"> *     ListNode next;</span></span><br><span class="line"><span class="comment"> *     ListNode() &#123;&#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span></span><br><span class="line"><span class="comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span></span><br><span class="line"><span class="comment"> * &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverseKGroup</span><span class="params">(ListNode head, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//如果链表为空，直接返回</span></span><br><span class="line">        <span class="keyword">if</span>(head == <span class="keyword">null</span>)<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        ListNode a = head;ListNode b = head;</span><br><span class="line">        <span class="comment">//搜寻节点b的位置</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;k;i++)&#123;</span><br><span class="line">            <span class="comment">//base case</span></span><br><span class="line">            <span class="keyword">if</span>(b==<span class="keyword">null</span>)<span class="keyword">return</span> head;</span><br><span class="line">            b=b.next;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//反转了a到b的节点</span></span><br><span class="line">        ListNode HeadNode = reverse(a,b);</span><br><span class="line">        </span><br><span class="line">        </span><br><span class="line">        a.next = reverseKGroup(b,k);</span><br><span class="line">        <span class="keyword">return</span> HeadNode;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//反转链表从a到b的节点</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> ListNode <span class="title">reverse</span><span class="params">(ListNode a,ListNode b)</span></span>&#123;</span><br><span class="line">        ListNode pre = a;ListNode cur = a;</span><br><span class="line">        ListNode sub = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">while</span>(cur!=b)&#123;</span><br><span class="line">            pre = pre.next;</span><br><span class="line">            cur.next = sub;</span><br><span class="line">            sub = cur;</span><br><span class="line">            cur = pre;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(sub.val);</span><br><span class="line">        <span class="keyword">return</span> sub;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h3 id=&quot;K个一组反转链表&quot;&gt;K个一组反转链表&lt;/h3&gt;
-&lt;blockquote&gt;
-&lt;p&gt;给你一个链表，每 k 个节点一组进行翻转，请你返回翻转后的链表。&lt;/p&gt;
-&lt;p&gt;k 是一个正整数，它的值小于或等于链表的长度。&lt;/p&gt;
-&lt;p&gt;如果节点总数不是 k 的整数倍，那么请将最</summary>
-      
-    
-    
-    
-    <category term="Leetcode刷题" scheme="http://example.com/categories/Leetcode%E5%88%B7%E9%A2%98/"/>
     
     
   </entry>
