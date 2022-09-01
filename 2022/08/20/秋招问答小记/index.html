@@ -1,0 +1,487 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>秋招问答小记 | THYLOVEZJ的博客</title><meta name="author" content="THYLOVEZJ"><meta name="copyright" content="THYLOVEZJ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[TOC] 计算机网络 1.说一下OSI七层模型（锐捷） 应用层 - 为计算机提供服务 表示层 - 数据处理(编解码，加密解密，压缩解压缩) 会话层 - 管理应用程序间的对话 传输层 - 为两台主机进程之间的通信提供通用的软件传输服务 网络层 - 路由和寻址 数据链路层 - 管理相邻节点的数据通信 2.说一下TCP和UDP的区别 TCP是提供面向连接的，可靠的数据传输服务 UDP是提供无连接的，尽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="秋招问答小记">
+<meta property="og:url" content="http://example.com/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/index.html">
+<meta property="og:site_name" content="THYLOVEZJ的博客">
+<meta property="og:description" content="[TOC] 计算机网络 1.说一下OSI七层模型（锐捷） 应用层 - 为计算机提供服务 表示层 - 数据处理(编解码，加密解密，压缩解压缩) 会话层 - 管理应用程序间的对话 传输层 - 为两台主机进程之间的通信提供通用的软件传输服务 网络层 - 路由和寻址 数据链路层 - 管理相邻节点的数据通信 2.说一下TCP和UDP的区别 TCP是提供面向连接的，可靠的数据传输服务 UDP是提供无连接的，尽">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2022-08-20T06:10:09.000Z">
+<meta property="article:modified_time" content="2022-09-01T02:28:07.248Z">
+<meta property="article:author" content="THYLOVEZJ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '秋招问答小记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-01 10:28:07'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="THYLOVEZJ的博客" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/2.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">THYLOVEZJ的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">秋招问答小记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-20T06:10:09.000Z" title="发表于 2022-08-20 14:10:09">2022-08-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-01T02:28:07.248Z" title="更新于 2022-09-01 10:28:07">2022-09-01</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="秋招问答小记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[TOC]</p>
+<h1>计算机网络</h1>
+<h2 id="1-说一下OSI七层模型（锐捷）">1.说一下OSI七层模型（锐捷）</h2>
+<p>应用层 - 为计算机提供服务</p>
+<p>表示层 - 数据处理(编解码，加密解密，压缩解压缩)</p>
+<p>会话层 - 管理应用程序间的对话</p>
+<p>传输层 - 为两台主机进程之间的通信提供通用的软件传输服务</p>
+<p>网络层 - 路由和寻址</p>
+<p>数据链路层 - 管理相邻节点的数据通信</p>
+<h2 id="2-说一下TCP和UDP的区别">2.说一下TCP和UDP的区别</h2>
+<p>TCP是提供面向连接的，可靠的数据传输服务</p>
+<p>UDP是提供无连接的，尽最大努力的数据传输服务(不保证数据传输的可靠性)</p>
+<h2 id="3-说一下HTTP协议和HTTPS协议的差别">3.说一下HTTP协议和HTTPS协议的差别</h2>
+<p>HTTP:超文本传输协议，用于在浏览器和服务器之间传递内容，是以明文的形式发送，不适合传输敏感信息，比如身份证，账号，密码。</p>
+<p>HTTPS:SSL+HTTP是可加密的，身份证的网络协议。</p>
+<p>区别：</p>
+<p>1.HTTPS是需要申请证书，证书需要费用。HTTP是明文传输，HTTPS是加密传输</p>
+<p>2.连接方式不同，端口不同，http：80	https：443</p>
+<p>3.http是无状态连接，https是由SSL和http组成的，是可加密的，身份认证的网络协议。</p>
+<h2 id="4-说一下HTTPS具体加密流程">4.说一下HTTPS具体加密流程</h2>
+<p>具体加密流程：</p>
+<p>1.客户端发起HTTP请求，连接到服务器的443端口</p>
+<p>2.服务器必须要有一套数字证书（证书内容有公钥，证书颁发机构，失效日期等）</p>
+<p>3.服务器将自己的数字证书发送给客户端</p>
+<p>4.客户端收到数字证书后，会验证证书的合法性，如果证书验证通过，就会生成一个随机的对称密钥，用证书的公钥进行加密。</p>
+<p>5.客户端将公钥加密后的密钥发送到服务器。</p>
+<p>6.服务器接收到客户端发来的密文密钥之后，用自己之前保留的私钥对其进行非对称解密，解密之后就得到客户端的密钥，然后用客户端的密钥对返回数据进行对称加密，这样子传输的数据都是密文。</p>
+<p>7.服务器将加密后的密文返回到客户端。</p>
+<p>8.客户端收到后，用自己的密钥对其进行对称加密，得到服务器返回数据。</p>
+<h2 id="5-说一下TCP的三次握手和四次挥手">5.说一下TCP的三次握手和四次挥手</h2>
+<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/cs-basics/network/tcp-shakes-hands-three-times.png" alt="TCP 三次握手图解"></p>
+<p>​			第一次握手：客户端发送带有SYN（SEQ = x）标志的数据包-&gt;服务端，然后客户端进入SYN_SEND状态，等待服务器的确认。</p>
+<p>​			第二次握手：服务端发送带有SYN+ACK（SEQ = y，ACK = x+1）标志的数据包-&gt;客户端，然后服务器进入SYN_RECV</p>
+<p>​			第三次握手：客户端发送带有ACK（ACK = y+1）标志的数据包-&gt;服务端，然后客户端和服务器端都进入ESTABLISHED状态，完成三次握手</p>
+<p><img src="https://guide-blog-images.oss-cn-shenzhen.aliyuncs.com/github/javaguide/cs-basics/network/tcp-waves-four-times.png" alt="TCP 四次挥手图解"></p>
+<h1>操作系统</h1>
+<h2 id="1-说一下进程和线程的区别">1.说一下进程和线程的区别</h2>
+<p>​	线程是进程划分成的更小的单位，一个进程在其执行的过程中可以产生多个线程，线程和进程最大的不同在于基本各进程是独立的，而各线程则不一定，因为同一进程中的线程可能会相互影响。线程执行开销小，但不利于资源的管理和保护。而进程则相反。</p>
+<h2 id="2-进程间的通讯方式">2.进程间的通讯方式</h2>
+<p>​	大概有七种常见的进程间的通信方式</p>
+<p>1、匿名管道/管道</p>
+<p>2、有名管道：有名管道严格遵循先进先出</p>
+<p>3、信号：信号是一种比较复杂的通讯方式</p>
+<p>4、消息队列</p>
+<p>5、信号量：计数器，用于多线程对共享数据访问，信号量意图在于进程间同步，这种通讯方式主要用于解决与同步相关的问题。并避免竞争条件。</p>
+<p>6、共享内存：使得多个线程可以访问同一块内存区间。不同进程可以及时看到对方进程中对共享内存的数据的更新，这种方式依赖于某种同步操作，如互斥锁和信号量等。</p>
+<p>7、套接字：此方法用在客户端和服务器之间通过网络进行通信。套接字是支持TCP/IP的网络通信的基本操作单元。可以看作是不同主机之间的线程进行双向通信的端点。</p>
+<h2 id="3-线程间通信方式">3.线程间通信方式</h2>
+<p>线程同步是两个或多个共享关键资源的线程的并发执行。应该同步线程以避免关键资源的使用冲突。操作系统一般有以下三种线程同步的方式</p>
+<p>1、互斥量：采用对象互斥机制，只有拥有互斥对象的线程才有访问公共资源的权限，因为互斥对象只有一个，所以可以保证公共资源不会被多个线程同时访问。比如Java中的sychronized关键字和各种Lock都是这种机制。</p>
+<p>2、信号量：它允许同一时刻多个线程访问资源，但是需要控制同一时刻访问此资源的最大线程数量。</p>
+<p>3、事件：Wait/Notify：它通过通知操作的方式来保持多线程同步，还可以方便的实现多线程优先级的比较操作。</p>
+<h2 id="4-说一下什么是上下文切换">4.说一下什么是上下文切换</h2>
+<p>线程在执行过程中会有自己的运行条件和状态（也称为上下文），比如上文说过的程序计数器，栈信息等。当出现如下情况时，线程会从CPU状态中退出。</p>
+<ul>
+<li>主动让出CPU，比如调用了sleep()、wait().</li>
+<li>时间片用完，因为操作系统要防止一个线程或者进程长时间占用CPU导致其他线程或者进程饿死。</li>
+<li>调用了阻塞类型的系统中断，比如请求IO，线程被阻塞等</li>
+<li>被终止或者结束运行。</li>
+</ul>
+<p>这几种都会发生线程切换，线程切换意味着要保存当前线程上下文。留待线程下次占用CPU的时候恢复现场，并加载下一个将要占用CPU的线程上下文。这就是所谓的上下文切换。</p>
+<h2 id="5-知道Java中常见的锁有哪些吗">5.知道Java中常见的锁有哪些吗</h2>
+<h3 id="锁的分类">锁的分类</h3>
+<p>我知道主要有sychronized和ReentrantLock</p>
+<p>sychronized主要有两种用法</p>
+<p>1.修饰实例方法（锁当前对象实例）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">// 业务代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>2.修饰静态方法（锁当前类）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">synchronized</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">// 业务代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="sychronized锁原理">sychronized锁原理</h3>
+<p>我们可以通过<strong>javap</strong>来查看<strong>sychronizedDemo</strong>类的相关字节码信息。</p>
+<p>sychronized底层使用的是monitorenter和monitorexit指令。</p>
+<p>当执行monitorenter指令时，线程试图获取锁也就是对象监视器monitor的使用权。</p>
+<p><img src="D:%5Cthy123%5Cpublic%5Cimg%5C%E6%8A%A2%E5%8D%A0%E9%94%81%E7%9A%84%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<pre><code>JDK1.6之前，sychronized只提供了重量级锁的机制。重量级锁是基于底层操作系统的Mutex Lock来实现，而使用Mutex锁则需要将当前线程挂起，并从用户态切换到内核态来运行。因此，这样会引起上下文切换带来的性能上的开销。
+</code></pre>
+<p>​	而在JDK1.6之后，sychronized做了很多的优化，其中针对锁的类型引入了偏向锁和轻量级锁。</p>
+<p><img src="D:%5Cthy123%5Cpublic%5Cimg%5C%E5%81%8F%E5%90%91%E9%94%81%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<p>​	在线程没有竞争时，使用偏向锁能够在不影响性能的前提下获得锁资源，但是，如果在同一时刻有多个线程访问同步方法，那么抢占不到锁的线程就会进行一定的自旋。</p>
+<p><img src="D:%5Cthy123%5Cpublic%5Cimg%5C%E8%BD%BB%E9%87%8F%E7%BA%A7%E9%94%81.png" alt=""></p>
+<p>JDK同时对自旋锁进行了优化，引入了自适应自旋锁。</p>
+<p>而当没有抢占到锁资源的线程经过一定自旋重试后发现没有抢占到锁资源，则只能阻塞等待，最终会升级到重量级锁。</p>
+<p><img src="D:%5Cthy123%5Cpublic%5Cimg%5C%E9%87%8D%E9%87%8F%E7%BA%A7%E9%94%81.png" alt=""></p>
+<h3 id="Reentrant-Lock使用">Reentrant Lock使用</h3>
+<p>Reentrant Lock基本使用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main1</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">static</span> Lock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        Main1 main1 = <span class="keyword">new</span> Main1();</span><br><span class="line">        Thread[] threads = <span class="keyword">new</span> Thread[<span class="number">2</span>];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j&lt;<span class="number">2</span>;j++)&#123;</span><br><span class="line">            threads[j] = <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">                <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;<span class="number">10000</span>;i++)&#123;</span><br><span class="line">                    main1.incr();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;);</span><br><span class="line">            threads[j].start();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        threads[<span class="number">0</span>].join();<span class="comment">// 保证线程执行结束</span></span><br><span class="line">        threads[<span class="number">1</span>].join();</span><br><span class="line">        System.out.println(main1.count);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">incr</span><span class="params">()</span></span>&#123;</span><br><span class="line">        lock.lock();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            count++;<span class="comment">//i++线程不安全</span></span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            lock.unlock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">--------------------------------</span><br><span class="line">输出</span><br><span class="line"><span class="number">20000</span></span><br></pre></td></tr></table></figure>
+<p>Lock接口还有以下三种实现</p>
+<p>Reentrant Lock，重入锁，属于排他锁类型，功能和sychronized相似。</p>
+<p>ReentrantReadWrite Lock，可重入读写锁，该类中维护了ReadLock和WriteLock两种锁</p>
+<p>StampedLock，JDK8引入的新的锁机制，他是ReentrantReadWriteLock的改进版本</p>
+<p>ReentrantReadWriteLock是一种读写锁</p>
+<ul>
+<li>读读不互斥： 如果多个线程访问读方法，那么这些线程不会阻塞</li>
+<li>读写互斥： 如果有一个线程在访问读方法，另外一个线程在访问写方法，那么为了数据的一致性，调用写方法的线程需要阻塞。</li>
+<li>写写互斥：如果多个线程同时访问写方法，则必须要按照互斥规则进行同步。</li>
+</ul>
+<p>StampedLock的基本应用</p>
+<p>Reentrant Lock锁有一个问题，即如果有线程在调用get()方法，那么所有调用add()方法的线程必须要等待调用get()方法的线程释放锁之后才能写，也就是在读的过程中不能写。而如果访问get()方法的线程非常多，就会导致线程一直被阻塞。</p>
+<p>为了解决Reentrant Lock中这个问题，在Java8中引入了StampedLock机制，相比于ReentrantReadWriteLock，它优化了读锁，写锁的访问。简单来说，StampedLock提供了一种乐观锁策略，当有线程调用get()方法读取数据时，不会阻塞准备执行写操作的线程。</p>
+<p>tryOptimisticRead，获取读锁，当有线程获取读锁时，它不会阻塞其他线程的写操作，它通过stamped字段即一个版本号来判断在读取过程中有没有其他线程对数据做了修改。</p>
+<h3 id="Reentrant-Lock底层原理">Reentrant Lock底层原理</h3>
+<p>Reentrant Lock底层依赖了AbstractQueuedSynchronizer来实现线程的同步。</p>
+<p>AQS提供了两种锁的实现。</p>
+<p>独占锁：同一时刻只允许有一个线程获得锁。</p>
+<p>共享锁：同一时刻允许多个线程同时获得锁，CountDownLatch的底层应该就是基于共享锁实现的，它维护了一个volatile int state，用来表示共享资源。</p>
+<h2 id="6-知道AQS中的CountDownLatch和CyclicBarrier吗">6.知道AQS中的CountDownLatch和CyclicBarrier吗</h2>
+<p>CountDownLatch的作用就是允许count个线程阻塞在一个地方，直到所有的线程的任务全部执行完毕。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">        CountDownLatch countDownLatch = <span class="keyword">new</span> CountDownLatch(<span class="number">2</span>);</span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;正在运行&quot;</span>);</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;,<span class="string">&quot;t1&quot;</span>).start();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">new</span> Thread(()-&gt;&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">&quot;正在运行&quot;</span>);</span><br><span class="line">            countDownLatch.countDown();</span><br><span class="line">        &#125;,<span class="string">&quot;t2&quot;</span>).start();</span><br><span class="line">        countDownLatch.await();</span><br><span class="line">        System.out.println(<span class="string">&quot;end&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>首先定义了一个倒计时器为2的CountDownLatch实例。</p>
+<p>定义两个方法分别执行RelationService线程，在线程中调用CountDownLatch.countDown()方法，分别对倒计时进行递减，其实也可以认为当前线程的某个任务执行完毕。</p>
+<p>main调用countDownLatch.await()方法进行阻塞，但计时器为0时被唤醒。</p>
+<p><img src="D:%5Cthy123%5Cpublic%5Cimg%5CCountDownLatch.png" alt=""></p>
+<h1>数据库</h1>
+<h2 id="1-说一下MySQL中的事务的四大特性（ACID）">1.说一下MySQL中的事务的四大特性（ACID）</h2>
+<p>什么是事务，简单来说，数据库事务可以多个对数据库的操作（也就是SQL语句）构成一个逻辑上的整体。构成这个逻辑上的整体的这些数据库操作遵循：要么全部执行成功，要么全部不执行。</p>
+<p>数据库的事务具有ACID特性</p>
+<table>
+<thead>
+<tr>
+<th>原子性</th>
+<th>事务是执行的最小单位，不允许分割，事务的原子性确保动作要么全部完成，要么完全不起作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>一致性</td>
+<td>执行事务前后，数据保持一致，比如发生转账业务后，转账者和收款人的总额应该是不变的。</td>
+</tr>
+<tr>
+<td>隔离性</td>
+<td>并发访问数据库时，一个用户的事务不被其他事务所干扰，各并发事务之间的数据库是独立的</td>
+</tr>
+<tr>
+<td>持久性</td>
+<td>一个事务被提交后，它对数据库中数据的改变是持久的，即使数据库发生故障也不应该对其有任何影响</td>
+</tr>
+</tbody>
+</table>
+<h2 id="2-并发事务带来了哪些问题（蔚来）">2.并发事务带来了哪些问题（蔚来）</h2>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>脏读</td>
+<td>当一个事务正在访问数据并且对数据做了更改，而这种修改还没有提交到数据库中。这时另外一个事务也访问了这个数据，然后使用了这个数据，因为这个数据是还没有提交的数据，那么另外一个事务读到的这个数据是脏数据，根据脏数据所作的操作可能是不正确的。</td>
+</tr>
+<tr>
+<td>丢失修改</td>
+<td>指一个事务在读取一个数据时，另一个事务也访问了该数据，那么在第一个事务中修改了这个数据后，第二个事务也修改了这个数据，这样第一个事务内的修改结果就被丢失了</td>
+</tr>
+<tr>
+<td>不可重复读</td>
+<td>只在一个事务内多次读取同一数据，这个事务还没有结束时，另一个事务也访问该数据。那么在第一个事务中的两次读数据之间，由于第二个事务的修改导致第一个事务两次读取的数据可能不太一样。这就发生了在一个事务内两次读取到数据是不一样的情况，因此成为不可重复读。</td>
+</tr>
+<tr>
+<td>幻读</td>
+<td>幻读与不可重复读类似，它发生在一个事务读取了几行数据，接着另一个并发事务插入了一些数据时，在随后的查询中，第一个事务就会发现多了一些原本不存在的记录，就好像发生了幻觉一样，所以称为幻读。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-MySQL定义了哪些隔离级别">3.MySQL定义了哪些隔离级别</h2>
+<p>SQL标准定义了四个隔离级别</p>
+<ul>
+<li>Read-Uncommitted（读未提交）：最低的隔离级别，允许读取尚未提交的数据变更，可能会导致脏读，幻读和不可重复读。</li>
+<li>Read-Committed（读取已提交）：允许读取并发事务已经提交的数据，可以阻止脏读，但是幻读和不可重复读仍有可能发生。</li>
+<li>Repeatable-Read（可重复读）：对多字段的多次读取结果都是一致的，除非数据是被自身事务所修改，可以阻止脏读和不可重复读，但幻读仍有可能发生。</li>
+<li>Serializable（可串行化）：最高的隔离级别，完全服从ACID的隔离级别。所有的事务依次逐个执行。这样事务之间就不可能产生干扰。也就是说，该级别可以防止脏读，不可重复读以及幻读。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>隔离级别</th>
+<th>脏读</th>
+<th>不可重复读</th>
+<th>幻读</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read-Uncmmitted</td>
+<td>√</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Read-Committed</td>
+<td>×</td>
+<td>√</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Repeatable-Read（默认级别）</td>
+<td>×</td>
+<td>×</td>
+<td>√</td>
+</tr>
+<tr>
+<td>Serializable</td>
+<td>×</td>
+<td>×</td>
+<td>×</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-MySQL中的表级锁">4.MySQL中的表级锁</h2>
+<p>MyISAM仅仅支持表级锁，一锁就锁住整张表。这在并发写的情况下性非常差。</p>
+<p>InnoDB不光支持表级锁，还支持行级锁（row-level locking) ,默认为行级锁。行级锁的粒度更小，仅对相关的记录相关的记录上锁即可（对一行或者多行记录加锁），所有对于并发写入操作来说，InnDB的性能更高。</p>
+<p>表级锁和行级锁对比：</p>
+<p>表级锁：MySQL中锁定粒度最大的一种锁，是针对非索引字段加的锁，对当前操作的整张表加锁。实现简单，资源消耗也比较少，加锁快，不会出现死锁。其锁定粒度最大，触发锁冲突的概率最高，并发度最低，MyISAM和InnoDB引擎都支持表级锁。</p>
+<p>行级锁：MySQL中锁定粒度最小的一种锁，是针对索引字段加的锁，只针对当前操作的行记录进行加锁。行级锁能大大减少数据库操作的冲突。其加锁粒度最小。并发度高，但加锁的开销也最大，加锁慢，会出现死锁。</p>
+<h2 id="5-行级锁的使用">5.行级锁的使用</h2>
+<p>InnoDB的行锁是针对索引字段加的锁，表级锁针对非索引字段加的锁，当我们执行UPDATE和DELETE语句时，如果WHERE语句时，如果WHERE条件中字段没有命中唯一索引或者索引失效的话，就会导致全表对表中的所有行记录进行加锁。</p>
+<h2 id="6-共享锁和排他锁知道吗">6.共享锁和排他锁知道吗</h2>
+<p>无论是表级锁还是行级锁，都存在共享锁和排他锁这两类。</p>
+<ul>
+<li>共享锁（S锁）：又称读锁、事务在读取记录的时候获取共享锁，允许多个事务同时获取（锁兼容）</li>
+<li>排他锁（X锁）：又称写锁/独占锁，事务在修改记录的时候获取排他锁，不允许多个事务同时获取。如果一个记录已经被加了排他锁，那么其他事务不能再对这条事务加任何类型的锁。（锁不兼容）</li>
+</ul>
+<p>排他锁与任何类型的锁都不兼容，共享锁仅能和共享锁兼容</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>S锁</th>
+<th>X锁</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>S锁</td>
+<td>不冲突</td>
+<td>冲突</td>
+</tr>
+<tr>
+<td>X锁</td>
+<td>冲突</td>
+<td>冲突</td>
+</tr>
+</tbody>
+</table>
+<h2 id="7-知道几类行锁">7.知道几类行锁</h2>
+<p>MySQL中InnoDB支持三种行锁定方式：</p>
+<p>记录锁：也被称为记录锁，属于单个行记录上的锁。</p>
+<p>间隙锁：锁定一个范围，不包括记录本身。</p>
+<p>临键锁：锁定一个范围，包括记录本身，记录锁只能锁住已经存在的记录，为了避免插入新记录，需要依赖间隙锁。</p>
+<p>InnoDB的默认级别RR（可重复读）是可以解决幻读问题发生的，主要有以下情况。</p>
+<p>快照读：由MVCC机制来保证不出现幻读。</p>
+<p>当前读：使用Next-Key Lock来保证不出现幻读。</p>
+<h2 id="8-数据库三大日志说一下">8.数据库三大日志说一下</h2>
+<p>数据库主要包含三大日志</p>
+<p>MySQL日志主要包含错误日志、查询日志、慢查询日志、事务日志、二进制日志</p>
+<p>比较重要的是二进制日志（binlog）和事务日志（redo log）和（undo log）</p>
+<p>binlog，它是物理日志，记录内容是“再某个数据页上做了什么更改”</p>
+<p>MySQL数据库的数据备份，例如主备、主主、主从都离不开binlog，需要依赖binlog来同步数据，保证数据一致性。</p>
+<h1>算法与数据结构</h1>
+<h2 id="1-快速排序算法">1.快速排序算法</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (array == <span class="keyword">null</span> || array.length &lt; <span class="number">2</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span>;     <span class="comment">//array为空或者该数组元素为一，没有排序的意义</span></span><br><span class="line">        &#125;</span><br><span class="line">        quickSort(array, <span class="number">0</span>, array.length - <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] array, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> ( l &gt;= r)&#123;</span><br><span class="line">            <span class="keyword">return</span>;     <span class="comment">//数据不合法，退出程序</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//要向使l --&gt; r中有序，先找到一个基准数,取数组的最后一个数为基准数</span></span><br><span class="line">        <span class="keyword">int</span> num = array[r];</span><br><span class="line">        <span class="comment">//找到基准数在数组中的位置，使得 &lt; 基准数的在左边 ,等于基准数的在中间, &gt; 基准数的在右边。</span></span><br><span class="line">        <span class="keyword">int</span>[] index = quick_sort(array, l, r,num);  <span class="comment">//此时中间的 = sum的已经拍好序了</span></span><br><span class="line">        quickSort(array,l,index[<span class="number">0</span>]);        <span class="comment">//使左边的有序</span></span><br><span class="line">        quickSort(array,index[<span class="number">1</span>],r);        <span class="comment">//使右边的有序</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span>[] quick_sort(<span class="keyword">int</span>[] array, <span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> num) &#123;</span><br><span class="line">        <span class="comment">//找到基准数在数组中的位置，使得 &lt; 基准数的在左边 ,等于基准数的在中间, &gt; 基准数的在右边。</span></span><br><span class="line">        <span class="keyword">int</span> p1 = l - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">int</span> p2 = r + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (l &lt; p2) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[l] &lt; num)&#123;</span><br><span class="line">                <span class="comment">//1.第一种情况，如果小于num的时候，将该元素与 &lt; 范围的前一个交换，i++</span></span><br><span class="line">                <span class="keyword">int</span> temp = array[l];</span><br><span class="line">                array[l] = array[p1 + <span class="number">1</span>];</span><br><span class="line">                array[p1 + <span class="number">1</span>] = temp;</span><br><span class="line">                l++;</span><br><span class="line">                p1++;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span> (array[l] == num)&#123;</span><br><span class="line">                <span class="comment">//2.第二种情况，如果[l]==sum的时候，l++</span></span><br><span class="line">                l++;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">//3.第三种情况,如果[l] &gt; sum的时候，[l] 与 &gt; 范围的前一个元素交换</span></span><br><span class="line">                <span class="keyword">int</span> temp = array[l];</span><br><span class="line">                array[l] = array[p2 - <span class="number">1</span>];</span><br><span class="line">                array[p2 - <span class="number">1</span>] = temp;</span><br><span class="line">                p2--;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;p1,p2&#125;;    <span class="comment">//此时中间的 = sum的已经拍好序了、</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>Java基础</h1>
+<h2 id="1-知道接口和抽象类的区别吗">1.知道接口和抽象类的区别吗</h2>
+<p>共同点：</p>
+<p>都不能被实例化。</p>
+<p>都可以包含抽象方法。</p>
+<p>都可以有默认实现的方法。</p>
+<p>区别：</p>
+<p>接口主要对类的行为进行约束，实现了某个接口就有了对应的行为。抽象类主要用于代码复用，强调的是所属关系。</p>
+<p>一个类只能继承一个类，但是可以实现多个接口。</p>
+<p>接口中的成员变量只能是public static final类型的，不能被修改且必须有初始值，而抽象类的成员变量默认default，可在子类中被重新定义，也可被重新赋值。</p>
+<h2 id="2-static关键字">2.static关键字</h2>
+<p>​	一旦变量用static修饰，就是多个对象共享一份数据</p>
+<p>​	一旦成员变量使用了static关键字，那么这个变量将不属于对象自己，而是属于所在的类，多个对象共享同一份数据。</p>
+<p>​	修饰成员方法，属于类成员方法。</p>
+<p>​	静态代码块，第一次用到本类时，执行唯一一次。</p>
+<h2 id="3-Java是值传递还是引用传递">3.Java是值传递还是引用传递</h2>
+<p>Java是值传递，</p>
+<h1>ElasticSearch</h1>
+<h2 id="1-介绍一下什么是倒排索引">1.介绍一下什么是倒排索引</h2>
+<p>id							content</p>
+<hr>
+<p>1001   					my name is zhang san</p>
+<p>1002						my name is li si</p>
+<p>key word 				id</p>
+<hr>
+<p>name						1001,1002</p>
+<p>zhang						1001</p>
+<h1>SpringBoot</h1>
+<h2 id="1-Springboot启动流程（民生科技）">1.Springboot启动流程（民生科技）</h2>
+<h3 id="SpringBootApplication原理解析">@SpringBootApplication原理解析</h3>
+<p>SpringBootApplivation是一个组合注解：主要包含@SpringBootConfiguration、@ComponentScan、@EnableAutoConfiguration</p>
+<p>@SpringBootConfiguration：</p>
+<p>@Configuration：SpringBoot可以去除xml配置，就是靠@Configuration这个注解，它的作用就是将当前类声明为配置类，同时还可以使用@bean注解将类以方法的形式实例化到spring容器，而方法名就是实例名。</p>
+<p>@ComponentScan：</p>
+<p>他的作用就是扫描当前包以及子包，将有@Component、@Controller、@Service、@Repository等注解的类注册到容器中，以便调用。而像是@mapper的注解不是这个注解扫描的，是在启动类上加@MapperScan。</p>
+<p>@EnableAutoConfiguration：</p>
+<p>@Import(AutoConfigurationImportSelector.class):</p>
+<p>包含selectImports()方法</p>
+<p>这个方法包括getAutoConfigurationEntry()方法，该方法就是读取classpath下的META-INF/spring.factories文件的配置，将相应的bean的配置读取出来，通过反射机制实例化为配置文件，然后注入spring容器。</p>
+<h3 id="SpringApplication-run-原理解析">SpringApplication.run()原理解析</h3>
+<p>创建SpringApplication实例化对象：</p>
+<p>1、获取应用类型</p>
+<p>NONE：非Web应用，即不会启动服务器</p>
+<p>SERVLET：基于Servlet的web应用。</p>
+<p>REACTIVE：响应式web服务（暂未接触过）</p>
+<p>2、获取初始化器</p>
+<p>在META-INF/spring.factories配置文件中获取初始化器，然后实例化、排序后再设置到initializers属性中。</p>
+<p>3、获取初监听器</p>
+<p>在META-INF/spring.factories配置文件里获取监听器，然后实例化。</p>
+<p>4、定位main方法</p>
+<p>遍历获取main方法所在的类并且返回对应的位置。</p>
+<p>创建之后调用run方法</p>
+<p>1、启动监听器</p>
+<p>2、创建上下文</p>
+<p>3、开启日志</p>
+<p>4、读取配置文件</p>
+<h1>Spring</h1>
+<h2 id="Bean的声明周期">Bean的声明周期</h2>
+<h3 id="Bean创建前的准备阶段">Bean创建前的准备阶段</h3>
+<p>步骤一：Bean创建前的准备阶段</p>
+<p>Bean容器在配置文件中找到Spring Bean的定义及相关的配置，如init-method和destroy-method指定的方法，</p>
+<p>实例化回调相关的后置处理器如BeanFactoryPostProcessor、BeanPostProcessor、InstantiationAwareBeanPostProcessor等</p>
+<p>步骤二：创建Bean的实例</p>
+<p>Spring容器使用Java反射API创建Bean的实例。扫描Bean声明的属性并解析。</p>
+<p>步骤三：开始依赖注入</p>
+<p>开始依赖注入，解析所有需要赋值的属性并赋值。</p>
+<p>如果Bean实现了BeanNameAware接口，则将通过传递Bean的名称来调用setBeanName()方法。</p>
+<p>如果Bean类实现BeanFactoryAware接口，则将通过传递BeanFactory对象的实例来调用setBeanFactory方法</p>
+<p>如果有任何与BeanFactory关联的BeanPostProcessors对象已加载Bean，则将在设置Bean属性之前调用postProcessBeforeInitialization方法，如果Bean类实现了InitializingBean接口，则在设置了配置文件中定义的所有Bean属性后，将调用afterPropertiesSet方法。</p>
+<p>步骤四：缓存到Spring容器</p>
+<p>如果配置文件中的Bean定义包含init-method属性。则将该</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">THYLOVEZJ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/">http://example.com/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">THYLOVEZJ的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/08/23/BFS%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">BFS广度优先遍历</div></div></a></div><div class="next-post pull-right"><a href="/2022/02/14/Freemarker/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Freemarker</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/2.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">THYLOVEZJ</div><div class="author-info__description">THYLOVEZJ的小家,欢迎访问</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">60</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/THYLOVEZJ"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">计算机网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%B4%E4%B8%80%E4%B8%8BOSI%E4%B8%83%E5%B1%82%E6%A8%A1%E5%9E%8B%EF%BC%88%E9%94%90%E6%8D%B7%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1.说一下OSI七层模型（锐捷）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%AF%B4%E4%B8%80%E4%B8%8BTCP%E5%92%8CUDP%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.2.</span> <span class="toc-text">2.说一下TCP和UDP的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%AF%B4%E4%B8%80%E4%B8%8BHTTP%E5%8D%8F%E8%AE%AE%E5%92%8CHTTPS%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%B7%AE%E5%88%AB"><span class="toc-number">1.3.</span> <span class="toc-text">3.说一下HTTP协议和HTTPS协议的差别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%B4%E4%B8%80%E4%B8%8BHTTPS%E5%85%B7%E4%BD%93%E5%8A%A0%E5%AF%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.4.</span> <span class="toc-text">4.说一下HTTPS具体加密流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AF%B4%E4%B8%80%E4%B8%8BTCP%E7%9A%84%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B%E5%92%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">1.5.</span> <span class="toc-text">5.说一下TCP的三次握手和四次挥手</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">操作系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%B4%E4%B8%80%E4%B8%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">2.1.</span> <span class="toc-text">1.说一下进程和线程的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BF%9B%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E8%AE%AF%E6%96%B9%E5%BC%8F"><span class="toc-number">2.2.</span> <span class="toc-text">2.进程间的通讯方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BA%BF%E7%A8%8B%E9%97%B4%E9%80%9A%E4%BF%A1%E6%96%B9%E5%BC%8F"><span class="toc-number">2.3.</span> <span class="toc-text">3.线程间通信方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%AF%B4%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E4%B8%8A%E4%B8%8B%E6%96%87%E5%88%87%E6%8D%A2"><span class="toc-number">2.4.</span> <span class="toc-text">4.说一下什么是上下文切换</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E7%9F%A5%E9%81%93Java%E4%B8%AD%E5%B8%B8%E8%A7%81%E7%9A%84%E9%94%81%E6%9C%89%E5%93%AA%E4%BA%9B%E5%90%97"><span class="toc-number">2.5.</span> <span class="toc-text">5.知道Java中常见的锁有哪些吗</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%94%81%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">2.5.1.</span> <span class="toc-text">锁的分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sychronized%E9%94%81%E5%8E%9F%E7%90%86"><span class="toc-number">2.5.2.</span> <span class="toc-text">sychronized锁原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reentrant-Lock%E4%BD%BF%E7%94%A8"><span class="toc-number">2.5.3.</span> <span class="toc-text">Reentrant Lock使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reentrant-Lock%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86"><span class="toc-number">2.5.4.</span> <span class="toc-text">Reentrant Lock底层原理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E7%9F%A5%E9%81%93AQS%E4%B8%AD%E7%9A%84CountDownLatch%E5%92%8CCyclicBarrier%E5%90%97"><span class="toc-number">2.6.</span> <span class="toc-text">6.知道AQS中的CountDownLatch和CyclicBarrier吗</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%AF%B4%E4%B8%80%E4%B8%8BMySQL%E4%B8%AD%E7%9A%84%E4%BA%8B%E5%8A%A1%E7%9A%84%E5%9B%9B%E5%A4%A7%E7%89%B9%E6%80%A7%EF%BC%88ACID%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">1.说一下MySQL中的事务的四大特性（ACID）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%B9%B6%E5%8F%91%E4%BA%8B%E5%8A%A1%E5%B8%A6%E6%9D%A5%E4%BA%86%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98%EF%BC%88%E8%94%9A%E6%9D%A5%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">2.并发事务带来了哪些问题（蔚来）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-MySQL%E5%AE%9A%E4%B9%89%E4%BA%86%E5%93%AA%E4%BA%9B%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB"><span class="toc-number">3.3.</span> <span class="toc-text">3.MySQL定义了哪些隔离级别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-MySQL%E4%B8%AD%E7%9A%84%E8%A1%A8%E7%BA%A7%E9%94%81"><span class="toc-number">3.4.</span> <span class="toc-text">4.MySQL中的表级锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%A1%8C%E7%BA%A7%E9%94%81%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">3.5.</span> <span class="toc-text">5.行级锁的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%85%B1%E4%BA%AB%E9%94%81%E5%92%8C%E6%8E%92%E4%BB%96%E9%94%81%E7%9F%A5%E9%81%93%E5%90%97"><span class="toc-number">3.6.</span> <span class="toc-text">6.共享锁和排他锁知道吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E7%9F%A5%E9%81%93%E5%87%A0%E7%B1%BB%E8%A1%8C%E9%94%81"><span class="toc-number">3.7.</span> <span class="toc-text">7.知道几类行锁</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%89%E5%A4%A7%E6%97%A5%E5%BF%97%E8%AF%B4%E4%B8%80%E4%B8%8B"><span class="toc-number">3.8.</span> <span class="toc-text">8.数据库三大日志说一下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">4.</span> <span class="toc-text">算法与数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="toc-number">4.1.</span> <span class="toc-text">1.快速排序算法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">5.</span> <span class="toc-text">Java基础</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E7%9F%A5%E9%81%93%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB%E7%9A%84%E5%8C%BA%E5%88%AB%E5%90%97"><span class="toc-number">5.1.</span> <span class="toc-text">1.知道接口和抽象类的区别吗</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-static%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">5.2.</span> <span class="toc-text">2.static关键字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-Java%E6%98%AF%E5%80%BC%E4%BC%A0%E9%80%92%E8%BF%98%E6%98%AF%E5%BC%95%E7%94%A8%E4%BC%A0%E9%80%92"><span class="toc-number">5.3.</span> <span class="toc-text">3.Java是值传递还是引用传递</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">6.</span> <span class="toc-text">ElasticSearch</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E4%BB%80%E4%B9%88%E6%98%AF%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95"><span class="toc-number">6.1.</span> <span class="toc-text">1.介绍一下什么是倒排索引</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">7.</span> <span class="toc-text">SpringBoot</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-Springboot%E5%90%AF%E5%8A%A8%E6%B5%81%E7%A8%8B%EF%BC%88%E6%B0%91%E7%94%9F%E7%A7%91%E6%8A%80%EF%BC%89"><span class="toc-number">7.1.</span> <span class="toc-text">1.Springboot启动流程（民生科技）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringBootApplication%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90"><span class="toc-number">7.1.1.</span> <span class="toc-text">@SpringBootApplication原理解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SpringApplication-run-%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90"><span class="toc-number">7.1.2.</span> <span class="toc-text">SpringApplication.run()原理解析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Bean%E7%9A%84%E5%A3%B0%E6%98%8E%E5%91%A8%E6%9C%9F"><span class="toc-number">8.1.</span> <span class="toc-text">Bean的声明周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bean%E5%88%9B%E5%BB%BA%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87%E9%98%B6%E6%AE%B5"><span class="toc-number">8.1.1.</span> <span class="toc-text">Bean创建前的准备阶段</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/01/%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E6%B3%95/" title="共轭梯度法"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="共轭梯度法"/></a><div class="content"><a class="title" href="/2022/09/01/%E5%85%B1%E8%BD%AD%E6%A2%AF%E5%BA%A6%E6%B3%95/" title="共轭梯度法">共轭梯度法</a><time datetime="2022-09-01T02:30:05.000Z" title="发表于 2022-09-01 10:30:05">2022-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/23/BFS%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" title="BFS广度优先遍历"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="BFS广度优先遍历"/></a><div class="content"><a class="title" href="/2022/08/23/BFS%E5%B9%BF%E5%BA%A6%E4%BC%98%E5%85%88%E9%81%8D%E5%8E%86/" title="BFS广度优先遍历">BFS广度优先遍历</a><time datetime="2022-08-23T03:29:05.000Z" title="发表于 2022-08-23 11:29:05">2022-08-23</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/" title="秋招问答小记"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="秋招问答小记"/></a><div class="content"><a class="title" href="/2022/08/20/%E7%A7%8B%E6%8B%9B%E9%97%AE%E7%AD%94%E5%B0%8F%E8%AE%B0/" title="秋招问答小记">秋招问答小记</a><time datetime="2022-08-20T06:10:09.000Z" title="发表于 2022-08-20 14:10:09">2022-08-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/14/Freemarker/" title="Freemarker"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Freemarker"/></a><div class="content"><a class="title" href="/2022/02/14/Freemarker/" title="Freemarker">Freemarker</a><time datetime="2022-02-14T03:54:44.000Z" title="发表于 2022-02-14 11:54:44">2022-02-14</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/02/09/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="Lambda表达式"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Lambda表达式"/></a><div class="content"><a class="title" href="/2022/02/09/Lambda%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="Lambda表达式">Lambda表达式</a><time datetime="2022-02-09T02:24:36.000Z" title="发表于 2022-02-09 10:24:36">2022-02-09</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By THYLOVEZJ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
