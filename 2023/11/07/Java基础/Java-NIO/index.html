@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Java NIO | THYLOVEZQ的博客</title><meta name="author" content="THYLOVEZQ"><meta name="copyright" content="THYLOVEZQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Java NIO概述 Java NIO是从Java1.4版本引入的一个新的API，可以代替标准的Java IO API。NIO支持面向缓冲区的，基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。 阻塞IO 通常在进行同步I&#x2F;O操作时，如果读取数据，代码会阻塞直至有可供读取的数据，同样，写入调用会阻塞直至数据能够写入。传统的Server&#x2F;Client模式会基于TPR（Thread Pe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java NIO">
+<meta property="og:url" content="http://example.com/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/index.html">
+<meta property="og:site_name" content="THYLOVEZQ的博客">
+<meta property="og:description" content="Java NIO概述 Java NIO是从Java1.4版本引入的一个新的API，可以代替标准的Java IO API。NIO支持面向缓冲区的，基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。 阻塞IO 通常在进行同步I&#x2F;O操作时，如果读取数据，代码会阻塞直至有可供读取的数据，同样，写入调用会阻塞直至数据能够写入。传统的Server&#x2F;Client模式会基于TPR（Thread Pe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2023-11-07T13:07:16.000Z">
+<meta property="article:modified_time" content="2023-11-15T15:34:40.850Z">
+<meta property="article:author" content="THYLOVEZQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Java NIO',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-11-15 23:34:40'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="THYLOVEZQ的博客" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/2.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">THYLOVEZQ的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Java NIO</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-11-07T13:07:16.000Z" title="发表于 2023-11-07 21:07:16">2023-11-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-11-15T15:34:40.850Z" title="更新于 2023-11-15 23:34:40">2023-11-15</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Java NIO"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1>Java NIO概述</h1>
+<p>Java NIO是从Java1.4版本引入的一个新的API，可以代替标准的Java IO API。NIO支持面向缓冲区的，基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。</p>
+<h2 id="阻塞IO">阻塞IO</h2>
+<p>通常在进行同步I/O操作时，如果读取数据，代码会阻塞直至有可供读取的数据，同样，写入调用会阻塞直至数据能够写入。传统的Server/Client模式会基于TPR（Thread Per Request），服务器会为每个客户端建立一个线程，由该线程单独负责处理一个客户请求。这种模式带来的一个问题就是线程数量的剧增。大量的线程会增大服务器的开销。大多数的实现为了避免这个问题。都采用了线程池模型，并设置线程池线程的最大数量，这带来了新的问题，如果线程池中有100个线程，而有100个用户都在进行大文件下载，会导致第101个用户的请求无法响应。</p>
+<h2 id="非阻塞IO">非阻塞IO</h2>
+<p>NIO中非阻塞IO采用了基于Reactor模式的工作方式，I/O调用不会被阻塞，相反是注册感兴趣的特定I/O事件，如可读数据到达，新的套接字连接等等。在发生特定事件时，系统再通知我们，NIO中实现非阻塞I/O的核心对象就是Selector。</p>
+<p>Selector就是注册各种I/O事件地方，而且当我们感兴趣的事情发生时，就是这个对象告诉我们所发生的事件，如下图所示：</p>
+<p>从图中可以看出，当有读或写等任何注册的事件发生时，可以从Selector中获取相应的SelectionKey，同时从SelectionKey中可以找到发生的事件和该事件所发生的具体的SelectableChannel，以获取到客户端发送过来的数据。</p>
+<p>非阻塞指的是IO事件本身不阻塞，但是获取IO事件的select()方法是需要阻塞等待的，区别是阻塞的IO会阻塞在IO操作上，NIO阻塞在事件获取上，没有事件就没有IO，从高层次看IO就不阻塞了，也就是说只有IO已经发生那么我们才评估IO是否阻塞，但是select()阻塞的时候IO还没有发生，何谈IO的阻塞呢？NIO的本质是延迟IO操作到真正发生IO的时候，而不是以前的只要IO流打开了就一直等待IO操作。</p>
+<table>
+<thead>
+<tr>
+<th>IO</th>
+<th>NIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>面向流（Stream Oriented）</td>
+<td>面向缓冲区（Buffer Oriented）</td>
+</tr>
+<tr>
+<td>阻塞IO（Blocking IO）</td>
+<td>非阻塞IO（Non Blocking IO）</td>
+</tr>
+<tr>
+<td>（无）</td>
+<td>选择器</td>
+</tr>
+</tbody>
+</table>
+<h2 id="NIO概述">NIO概述</h2>
+<p>Java NIO由以下几个核心部分组成：</p>
+<ul>
+<li>Channels</li>
+<li>Buffers</li>
+<li>Selectors</li>
+</ul>
+<p>虽然Java NIO中除此之外还有很多类和组件，但Channel，Buffer和Selector构成了核心的API，其他组件，如Pipe和FileLock，只不过是与三个核心组件共同使用的工具类。</p>
+<h3 id="Channel">Channel</h3>
+<p>首先说一下Channel，可以翻译为&quot;通道&quot;。Channel和IO中的Stream（流）是差不多一个等级的。只不过流是单向的，譬如InputStream，OutputStream，而Channel是双向的，既可以用来进行读操作，又可以进行写操作。</p>
+<p>NIO的主要实现有：FileChannel，DatagramChannel，SocketChannel和ServerSocketChannel，这里看名字就可以猜出来：分别对应文件IO，UDP和TCP（Server和Client）</p>
+<h3 id="Buffer">Buffer</h3>
+<p>NIO中的关键Buffer实现有：ByteBuffer，CharBuffer，DoubleBuffer，FloatBuffer，IntBuffer，LongBuffer，ShortBuffer，分别对应基本数据类型：byte，char，double，float，int，long，short。</p>
+<h3 id="Selector">Selector</h3>
+<p>Selector运行单线程处理多个Channel，如果你的应用打开了多个通道，但每个连接的流量都很低，使用Selector就会很方便。例如在一个聊天服务器中，要使用Selector，得向Selector注册Channel，然后调用它的select()方法，这个方法会一直阻塞到某个注册的通道有事件就绪，一旦这个方法返回，线程就可以处理这些事件，事件的例子有如新的连接进来，数据接收等。</p>
+<h2 id="Channel概述">Channel概述</h2>
+<p>Channel是一个通道，可以通过它读取和写入数据，它就像水管一样，网络数据通过Channel读取和写入。通道与流的不同之处在于通道是双向的，流只是在一个方向上移动（一个流必须是InputStream货或者OutputStream的子类），而且通道可以用于读，写或者同时用于读写，因为Channel是全双工的，所以它可以比流更好地映射底层操作系统的API。</p>
+<p>NIO中通过channel封装了对数据源的操作，通过channel我们可以操作数据源，但又不必关心数据源的具体物理结构。这个数据源可能是多种的。比如，可以是文件，也可以是网络socket。在大多数应用中，channel与文件描述符或者socket是一一对应的，Channel用于在字节缓冲区和位于通道另一侧的实体（通常是一个文件或套接字）之间有效的传输数据。</p>
+<p><strong>channel接口源码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Channel</span> <span class="keyword">extends</span> <span class="title">Closeable</span></span>&#123;</span><br><span class="line">    </span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">    * Tells whether or not this channel is open.</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span> true if,only if this channel is open</span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOpen</span><span class="params">()</span></span>;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * Closes this channel</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@throws</span> IOException If an I/O error occurs</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>与缓冲区不同，通道API主要由接口指定，不同的操作系统上通道实现（Channel Implementation）会有根本性的差异，所以通道API仅仅描述了可以做什么，因此很自然地，通道实现经常使用操作系统的本地代码，通道接口允许您以一种受控且可移植的方式来访问底层的I/O服务。</p>
+<p>Channel是一个对象，可以通过它读取和写入数据，拿NIO与原来的I/O做个比较，通道就像是流，所有数据都通过Buffer对象来处理，您永远不会将字节直接写入通道中，相反，您是将数据写入包含一个或者多个字节的缓冲区。同样，您不会直接从通道中读取字节，而是将数据从通道读入到缓冲区。再从缓冲区获取这个字节。</p>
+<p>Java NIO的通道类似流，但又有些不同：</p>
+<ul>
+<li>既可以从通道中读取数据，又可以写数据到通道，但流的读写通常是单向的。</li>
+<li>通道可以异步地读写。</li>
+<li>通道中的数据总是要先读到一个Buffer，或者总是要从一个Buffer中写入。</li>
+</ul>
+<h3 id="Channel实现">Channel实现</h3>
+<p>下面是Java NIO中最重要的Channel的实现：</p>
+<ul>
+<li>FileChannel</li>
+<li>DatagramChannel</li>
+<li>SocketChannel</li>
+<li>ServerSocketChannel</li>
+</ul>
+<p>1）FileChannel从文件中读写数据。</p>
+<ol start="2">
+<li>
+<p>DatagramChannel能通过UDP读写网络中的数据。</p>
+</li>
+<li>
+<p>SocketChannel能通过TCP读写网络中的数据。</p>
+</li>
+<li>
+<p>ServerSocketChannel 可以监听新进来的TCP连接，像Web服务器那样，对每一个新进来的连接都会创建一个SocketChannel。</p>
+</li>
+</ol>
+<p>正如你看到的，这些通道涵盖了UDP，TCP网络IO，以及文件IO。</p>
+<h3 id="FileChannel介绍和示例">FileChannel介绍和示例</h3>
+<p>FileChannel类可以实现常用的read，write以及scatter/gather操作，同时它也提供了很多专用于文件的新方法。这些方法中的许多都是我们所熟悉的文件操作。</p>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int read(ByteBuffer dst)</td>
+<td>从Channel中读取数据到ByteBuffer</td>
+</tr>
+<tr>
+<td>long read(ByteBuffer[] dsts)</td>
+<td>将Channel中的数据&quot;分散&quot;到ByteBuffer[]</td>
+</tr>
+<tr>
+<td>int write(ByteBuffer src)</td>
+<td>将ByteBuffer中的数据写入到Channel</td>
+</tr>
+<tr>
+<td>long write(ByteBuffer[] srcs)</td>
+<td>将ByteBuffer[]中的数据&quot;聚集&quot;到Channel</td>
+</tr>
+<tr>
+<td>long position()</td>
+<td>返回此通道的文件位置</td>
+</tr>
+<tr>
+<td>FileChannel position(long p)</td>
+<td>设置此通道的文件位置</td>
+</tr>
+<tr>
+<td>long size()</td>
+<td>返回此通道的文件的当前大小</td>
+</tr>
+<tr>
+<td>FileChannel truncate(long s)</td>
+<td>将此通道的文件截取为给定大小</td>
+</tr>
+<tr>
+<td>void force(boolean metaData)</td>
+<td>强制将所有对此通道的文件更新写入到存储设备中</td>
+</tr>
+</tbody>
+</table>
+<p>下面是一个使用FileChannel读取数据到Buffer中的示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileChannelDemo1</span> </span>&#123;</span><br><span class="line">    <span class="comment">// FileChannel读取数据到buffer中</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 1. 创建FileChannel</span></span><br><span class="line">        RandomAccessFile accessFile =</span><br><span class="line">                <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;D:\\springboot-proj\\multi-thread\\01.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line">        FileChannel channel = accessFile.getChannel();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 2. 创建Buffer</span></span><br><span class="line">        ByteBuffer buf = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 3. 读取数据到buffer中</span></span><br><span class="line">        <span class="keyword">int</span> bytesRead = channel.read(buf);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (bytesRead != -<span class="number">1</span>) &#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;读取了&quot;</span> + bytesRead);</span><br><span class="line">            <span class="comment">// 读取的转换</span></span><br><span class="line">            buf.flip();</span><br><span class="line">            <span class="keyword">while</span> (buf.hasRemaining()) &#123;</span><br><span class="line">                System.out.println((<span class="keyword">char</span>) buf.get());</span><br><span class="line">            &#125;</span><br><span class="line">            buf.clear();</span><br><span class="line">            bytesRead = channel.read(buf);</span><br><span class="line">        &#125;</span><br><span class="line">        accessFile.close();</span><br><span class="line">        System.out.println(<span class="string">&quot;结束了&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="FileChannel操作详解">FileChannel操作详解</h3>
+<h4 id="打开FileChannel">打开FileChannel</h4>
+<p>在使用FileChannel之前，必须先打开它。但是，我们无法直接打开一个FileChannel，需要通过一个InputStream、OutputStream或者RandomAccessFile来获取一个FileChannel实例，下面是通过RandomAccessFile打开FileChannel的示例：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RandomAccessFile accessFile =</span><br><span class="line">                <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;D:\\springboot-proj\\multi-thread\\01.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line">        FileChannel inChannel = accessFile.getChannel();</span><br></pre></td></tr></table></figure>
+<h4 id="从FileChannel读取数据">从FileChannel读取数据</h4>
+<p>调用多个read()方法之一从FileChannel中读取数据。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ByteBuffer buf = ByteBuffer.allocate(<span class="number">48</span>);</span><br><span class="line"><span class="keyword">int</span> bytesRead = inChannel.read(buf)</span><br></pre></td></tr></table></figure>
+<p>首先，分配一个Buffer，从FileChannel中读取的数据将被读到Buffer中，然后，调用FileChannel.read()方法，该方法将数据从FileChannel读取到Buffer中，read()方法返回的int值，表示有多少个字节被读取到了Buffer中，如果返回-1，表示到了文件末尾。</p>
+<h4 id="向FileChannel写数据">向FileChannel写数据</h4>
+<p>使用FileChannel.write()方法向FileChannel写数据，该方法的参数是一个Buffer。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileChannelDemo2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">// 打开FileChannel</span></span><br><span class="line">        RandomAccessFile randomAccessFile</span><br><span class="line">                = <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;D:\\springboot-proj\\multi-thread\\01.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line">        FileChannel channel = randomAccessFile.getChannel();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 创建Buffer对象</span></span><br><span class="line">        ByteBuffer byteBuffer = ByteBuffer.allocate(<span class="number">1024</span>);</span><br><span class="line"></span><br><span class="line">        String newData = <span class="string">&quot;data heima&quot;</span>;</span><br><span class="line"></span><br><span class="line">        byteBuffer.clear();</span><br><span class="line"></span><br><span class="line">        byteBuffer.put(newData.getBytes());</span><br><span class="line"></span><br><span class="line">        byteBuffer.flip();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (byteBuffer.hasRemaining()) &#123;</span><br><span class="line">            channel.write(byteBuffer);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        channel.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意：FileChannel.write()是在while循环中调用的，因为无法保证write()方法一次能向FileChannel写入多少字节，因此需要重复调用write()方法，直到Buffer中已经没有尚未写入通道的字节。</p>
+<h4 id="关闭FileChannel">关闭FileChannel</h4>
+<p>用完FileChannel后必须将其关闭：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">inChannel.close();</span><br></pre></td></tr></table></figure>
+<h4 id="FileChannel的position方法">FileChannel的position方法</h4>
+<p>有时可能需要在FileChannel的某个特定位置进行数据的读或者写操作。可以通过调用position()方法获取FileChannel的当前位置，也可以通过调用position(long pos)方法设置FileChannel的当前位置。</p>
+<p>这里有两个例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> pos = channel.position();</span><br><span class="line">channel.position(pos + <span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+<p>如果将位置设置在文件结束符之后，然后试图从文件通道中读取数据，读方法将返回1（文件结束标志）。</p>
+<p>如果将位置设置在文件结束符之后，然后向通道中写数据，文件将撑大到当前位置并写入数据。这可能导致&quot;文件空洞&quot;，磁盘上物理文件中写入的数据间有空隙。</p>
+<h3 id="FileChannel的size方法">FileChannel的size方法</h3>
+<p>FileChannel实例的size()方法将返回该实例所关联文件的大小，如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">long</span> fileSize = channel.size();</span><br></pre></td></tr></table></figure>
+<h3 id="FileChannel的truncate方法">FileChannel的truncate方法</h3>
+<p>可以使用FileChannel.truncate()方法截取一个文件。截取文件时，文件将中指定长度后面的部分将被删除。如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">channel.truncate(<span class="number">1024</span>);</span><br></pre></td></tr></table></figure>
+<p>这个例子截取文件的前1024个字节。</p>
+<h3 id="FileChannel的force方法">FileChannel的force方法</h3>
+<p>FileChannel.force()方法将通道里尚未写入磁盘的数据强制写到磁盘上，出于性能方面的考虑，操作系统会将数据缓存到内存中，所以无法保证写入到FileChannel里的数据一定会即时写道磁盘上，要保证这一点，需要调用force()方法。</p>
+<p>force()方法有一个boolean类型的参数，指明是否同时将文件元数据（权限信息等）写道磁盘上。</p>
+<h3 id="FileChannel的transferTo和transferFrom方法">FileChannel的transferTo和transferFrom方法</h3>
+<p>通道之间的数据传输：</p>
+<p>如果两个通道中有一个是FileChannel，那你可以直接将数据从一个channel传输到另外一个channel。</p>
+<p>FileChannel的transfrom()方法可以将数据从源通道传输到FileChannel中（译者注：这个方法在JDK文档的解释为将字节从给定的可读取字节通道传输到此通道的文件中）。下面是一个FileChannel完成文件间的复制的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 通道之间数据的传输</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileChannelDemo3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        RandomAccessFile aFile =</span><br><span class="line">                <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;D:\\springboot-proj\\multi-thread\\01.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line"></span><br><span class="line">        FileChannel fromChannel = aFile.getChannel();</span><br><span class="line"></span><br><span class="line">        RandomAccessFile bFile = <span class="keyword">new</span> RandomAccessFile(<span class="string">&quot;D:\\springboot-proj\\multi-thread\\02.txt&quot;</span>, <span class="string">&quot;rw&quot;</span>);</span><br><span class="line"></span><br><span class="line">        FileChannel toChannel = bFile.getChannel();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> position = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">long</span> count = fromChannel.size();</span><br><span class="line"></span><br><span class="line">        toChannel.transferFrom(fromChannel, position, count);</span><br><span class="line"></span><br><span class="line">        aFile.close();</span><br><span class="line">        bFile.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">THYLOVEZQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/">http://example.com/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">THYLOVEZQ的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Gradle</div></div></a></div><div class="next-post pull-right"><a href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Gitlab</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/2.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">THYLOVEZQ</div><div class="author-info__description">THYLOVEZQ的小家,欢迎访问</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/THYLOVEZJ"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">Java NIO概述</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%98%BB%E5%A1%9EIO"><span class="toc-number">1.1.</span> <span class="toc-text">阻塞IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E9%98%BB%E5%A1%9EIO"><span class="toc-number">1.2.</span> <span class="toc-text">非阻塞IO</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#NIO%E6%A6%82%E8%BF%B0"><span class="toc-number">1.3.</span> <span class="toc-text">NIO概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel"><span class="toc-number">1.3.1.</span> <span class="toc-text">Channel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Buffer"><span class="toc-number">1.3.2.</span> <span class="toc-text">Buffer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Selector"><span class="toc-number">1.3.3.</span> <span class="toc-text">Selector</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Channel%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.</span> <span class="toc-text">Channel概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Channel%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">Channel实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E4%BB%8B%E7%BB%8D%E5%92%8C%E7%A4%BA%E4%BE%8B"><span class="toc-number">1.4.2.</span> <span class="toc-text">FileChannel介绍和示例</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E6%93%8D%E4%BD%9C%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.4.3.</span> <span class="toc-text">FileChannel操作详解</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%89%93%E5%BC%80FileChannel"><span class="toc-number">1.4.3.1.</span> <span class="toc-text">打开FileChannel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8EFileChannel%E8%AF%BB%E5%8F%96%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.3.2.</span> <span class="toc-text">从FileChannel读取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91FileChannel%E5%86%99%E6%95%B0%E6%8D%AE"><span class="toc-number">1.4.3.3.</span> <span class="toc-text">向FileChannel写数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B3%E9%97%ADFileChannel"><span class="toc-number">1.4.3.4.</span> <span class="toc-text">关闭FileChannel</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#FileChannel%E7%9A%84position%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.3.5.</span> <span class="toc-text">FileChannel的position方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E7%9A%84size%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.4.</span> <span class="toc-text">FileChannel的size方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E7%9A%84truncate%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.5.</span> <span class="toc-text">FileChannel的truncate方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E7%9A%84force%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.6.</span> <span class="toc-text">FileChannel的force方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#FileChannel%E7%9A%84transferTo%E5%92%8CtransferFrom%E6%96%B9%E6%B3%95"><span class="toc-number">1.4.7.</span> <span class="toc-text">FileChannel的transferTo和transferFrom方法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户交友网站项目"/></a><div class="content"><a class="title" href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目">用户交友网站项目</a><time datetime="2023-11-12T04:20:52.000Z" title="发表于 2023-11-12 12:20:52">2023-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle"/></a><div class="content"><a class="title" href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle">Gradle</a><time datetime="2023-11-11T07:33:57.000Z" title="发表于 2023-11-11 15:33:57">2023-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java NIO"/></a><div class="content"><a class="title" href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO">Java NIO</a><time datetime="2023-11-07T13:07:16.000Z" title="发表于 2023-11-07 21:07:16">2023-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gitlab"/></a><div class="content"><a class="title" href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab">Gitlab</a><time datetime="2023-11-04T09:48:30.000Z" title="发表于 2023-11-04 17:48:30">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/03/C++/C/" title="C++"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++"/></a><div class="content"><a class="title" href="/2023/11/03/C++/C/" title="C++">C++</a><time datetime="2023-11-03T15:40:51.000Z" title="发表于 2023-11-03 23:40:51">2023-11-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By THYLOVEZQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
