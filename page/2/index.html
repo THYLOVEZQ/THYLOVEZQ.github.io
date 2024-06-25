@@ -55,7 +55,7 @@
   isHome: true,
   isHighlightShrink: false,
   isToc: false,
-  postUpdate: '2023-11-15 23:35:24'
+  postUpdate: '2024-06-25 22:58:45'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -145,212 +145,322 @@
     }
     detectApple()
     })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="THYLOVEZQ的博客" type="application/atom+xml">
-</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/2.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://i.picsum.photos/id/1068/7117/4090.jpg?hmac=Y6xHXrzHsNlbRTbhzZ53Yk-Ux9lUECBLbbP4wb5a1qY')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">THYLOVEZQ的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">THYLOVEZQ的博客</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/09/26/Junit%E5%92%8CMockito/" title="Junit和Mockito">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Junit和Mockito"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/26/Junit%E5%92%8CMockito/" title="Junit和Mockito">Junit和Mockito</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-26T14:02:04.000Z" title="发表于 2023-09-26 22:02:04">2023-09-26</time></span></div><div class="content">[TOC]
-Junit
-例如：我们要测试以下代码：
-12345678package com.thylovecode.juintdemo    public class DemoUtils&#123;       public int add(int a,int b)&#123;       return a + b;   &#125;&#125;
-一.添加Maven依赖
-123456&lt;dependency&gt;    &lt;groupId&gt;org.junit.jupiter&lt;/groupId&gt;    &lt;artifactId&gt;junit-jupiter&lt;/artifactId&gt;    &lt;version&gt;5.8.2&lt;/version&gt;    &lt;scope&gt;test&lt;/scope&gt;&lt;/dependency&gt;
-二.创建测试代码所在的包
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/2.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url('https://i.picsum.photos/id/1068/7117/4090.jpg?hmac=Y6xHXrzHsNlbRTbhzZ53Yk-Ux9lUECBLbbP4wb5a1qY')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">THYLOVEZQ的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">THYLOVEZQ的博客</h1><div id="site-subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2024/06/25/Java%20Web/WebSocket/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/25/Java%20Web/WebSocket/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-25T14:57:58.382Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></span></div><div class="content">
+
+Socketjs
+1.是一个浏览器
 
 
-我们的代码在下面的包中：
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2024/06/25/Java%20Web/Redis/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/25/Java%20Web/Redis/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-25T14:57:58.380Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></span></div><div class="content">[TOC]
+Redis
+什么是Redis
+SQL：关系型数据库
+NoSQL：非关系型数据库
+关系型数据库和非关系型数据库的差别
 
-com.thylovecode.junitdemo
+结构化
+关联性
+SQL查询
+ACID
 
-
-
-我们的测试代码所在目录必须在相同目录下
-
-
-三.创建单元测试 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/09/24/%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E9%A1%B9%E7%9B%AE/" title="用户中心项目">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户中心项目"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/24/%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E9%A1%B9%E7%9B%AE/" title="用户中心项目">用户中心项目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-24T13:18:00.000Z" title="发表于 2023-09-24 21:18:00">2023-09-24</time></span></div><div class="content">[TOC]
-node.js的安装
-node.js安装网址如下：
-1https://nodejs.org/en
-node.js下载好后需要在node的安装目录下配置两个文件夹 node_global和node_cache
-
-并执行这两段代码
-注意：确保一定成功，请用管理员cmd运行，在此之前需要设置一下文件的可读权限
-123npm config set prefix &quot;D:\nodejs\node_global&quot;npm config set cache &quot;D:\nodejs\node_cache&quot;
-
-还有外面的nodejs文件也需要设置文件权限，可以避免后面报错。
-
-Ant Design Pro的创建
-需要创建一个新的文件夹，通过cmd打开命令行窗口
-
-然后再命令窗口中输入官网的创建Ant Design Pro的命令：
-123# 使用 npmnpm i @ant-design/pro-cli -gpro create myapp
-数据库设计
-什么是数据库？存数据
-数据库有什么？数据表 （理解为excel表格）
-java 操作数据库？ 代替人工
-什么 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/09/21/nginx/" title="nginx">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nginx"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/21/nginx/" title="nginx">nginx</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-21T14:05:13.000Z" title="发表于 2023-09-21 22:05:13">2023-09-21</time></span></div><div class="content">[TOC]
-Nginx
-Nginx的版本
-
-Nginx的常用版本有四个：
-Nginx开源版
-
-http://nginx.org
-
-
-Nginx plus 商业版
-
-http://www.nginx.com
-
-
-Openresty
-
-http://openresty.org
-
-
-Tengine
-
-http://tengine.taobao.org
+MySQL是结构化
 
 
 
-Nginx开源版安装
-
-下载
-编译安装与依赖检查
-Nginx启停
-关闭防火墙
-安装成系统服务
-
-将下载好的nginx-1.22.1.tar.gz放到/usr/local/目录下
-输入下面的命令解压缩：
-1tar -zxvf  nginx-1.22.1.tar.gz
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/09/21/Java%E5%9F%BA%E7%A1%80/JVM/" title="JVM">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="JVM"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/21/Java%E5%9F%BA%E7%A1%80/JVM/" title="JVM">JVM</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-21T13:52:10.000Z" title="发表于 2023-09-21 21:52:10">2023-09-21</time></span></div><div class="content">[TOC]
-JVM
-什么是JVM
-定义：
-Java Virtual Machine -java 程序的运行环境（java二进制字节码的运行环境）
-好处：
-
-JVM是Java程序一次编写，到处运行的基石。
-自动内存管理，垃圾回收功能。
-数组下标越界检查
-多态
-
-JVM学习路线
-
-内存结构
-Program Counter Register 程序计数器（寄存器）
-
-作用：记住下一条指令的执行地址。
-特点
-
-是线程私有的
-不会存在内存溢出
+id
+name
+age
 
 
 
-虚拟机栈定义
-Java Virtual Machine Stacks（虚拟机栈）
 
-每个线程运行所需要的内存，称为虚拟机栈。
-每个栈由多个栈帧组成，对应着每次方法调用时所占用的内存
-每个线程只能有一个活动栈帧，对应着当前执行的那个方法
+1
+张三
+20
 
-问题辨析：
-1.垃圾回收是否设计栈内存：
-不涉及，因为栈内存无非就是一次次的方法调用，而每一次方法结束后，都会弹出栈，因此垃圾回收不需要回收栈内存。
-2.栈内存的分配越大越好吗
-栈内存越大，线程数会越少。
-栈内存可以通过设置-Xss来指定：
-默认情况下：
 
-Linux: 1024KB
-macOS: 1024KB
-Ora ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/09/16/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/16/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/" title="设计模式">设计模式</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-16T07:18:56.000Z" title="发表于 2023-09-16 15:18:56">2023-09-16</time></span></div><div class="content">[TOC]
-设计模式
-工厂模式
-工厂模式也被称为简单工厂，是创建型模式的一种，这种模式提供了按需创建对象的最佳方式，这种设计模式不会对外暴露创建细节，并且会提供一个统一的接口创建对象，例如，机械厂可以生产织布机和缝纫机。
-这种设计模式也是Java开发中常见的一种模式，它的主要意图是提供一个创建对象的接口，让其子类自己决定将哪一个工厂类实例化，工厂模式使创建过程延迟到子类中进行。
-简单的来说，就是为了给代码结构提供扩展性，屏蔽每一个功能类中的具体实现逻辑。这种方式便于外部简单调用，也是去掉众多if-else的最佳手段。但这种方法也存在缺点，例如实现类较多，难以维护。
-制作Pizza
-看一个Pizza项目，要便于披萨种类的拓展，要便于维护。
+2
+李四
+30
 
-披萨的种类很多（比如GreekPizz，CheesePizz等）
-披萨的制作有prepare，bake，cut，box
-完成披萨的订购功能
 
-我们先来看一个不符合设计模式的代码：
-1234567891011121314151617181920212223public abstract class Pizza &#123;    protected S ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/09/16/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React%E5%9F%BA%E7%A1%80/" title="React基础">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="React基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/16/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/React%E5%9F%BA%E7%A1%80/" title="React基础">React基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-16T06:47:44.000Z" title="发表于 2023-09-16 14:47:44">2023-09-16</time></span></div><div class="content">[TOC]
-React
-React是什么
-用于构建用户界面的Javascript库。
-如果没有React时，我们写前端页面：
 
-发送请求获取数据
-处理数据
-操作DOM显示页面
+对于MySQL来说，id作为主键，有主键约束，name有唯一约束，age有无符号约束
+插入数据的时候也会对数据做校验
+Redis是非结构化
 
-React是一个将数据渲染为HTML视图的开源Javascript库。
-React是谁开发的
-由Facebook开发
-为什么要学习React
 
-原生Javascript操作DOM繁琐，效率低（DOM-API操作UI）
-使用Javascript直接操作DOM，浏览器会进行大量的重绘重排。
-原生Javascript没有组件化编码方案，代码复用率低。
 
-React的特点
+key
+value
 
-采用组件化模式，声明式编码，提高开发效率及组件复用率。
-在React Native中可以使用React语法进行移动端开发。
-使用虚拟DOM+优秀的Diffing算法，尽量减少与真实DOM的交互。
 
-创建React项目
-1、安装 create-react-app
-1npm install -g create-react-app
-2、检测 create-react-app 是否安装成功
-1create-react-app -V
-3、创建 React 项 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/09/04/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/typescript/" title="typescript">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="typescript"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/09/04/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/typescript/" title="typescript">typescript</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-09-04T11:48:24.000Z" title="发表于 2023-09-04 19:48:24">2023-09-04</time></span></div><div class="content">[TOC]
-typescript介绍
-typescript是什么
-Typescript是Javascript的超集
-TypeScript=Type+JavaScript（在JS基础之上，为JS添加了类型支持）
-TypeScript是微软开发的开源编程语言，可以在任何运行JS的地方运行
-12345// Typescript 代码：有明确的类型，即number（数值类型）let age1 : number = 18// Javascript代码：无明确类型let age2 = 18
-TypeScript为什么要为JS添加类型支持
-背景：JS 的类型系统存在先天缺陷，JS代码中绝大部分错误都是类型错误。
-问题：增加了找BUG，改BUG的时间，严重影响开发效率
-从编程语言的动静来区分，TypeScript属于静态类型的编程语言，JS属于动态类型的编程语言。
-静态类型：编译期做类型检查；动态类型：执行期做类型检查。
-代码编译和代码执行顺序：1.编译 2.执行
-对于JS来说：需要等到代码真正去执行时才能发现错误
-对于TS来说：在代码编译的时候就可以发现错误。
-并且，配合VSCode等开发工具，TS ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/08/05/Unity/" title="Unity">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Unity"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/08/05/Unity/" title="Unity">Unity</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-08-05T13:44:12.000Z" title="发表于 2023-08-05 21:44:12">2023-08-05</time></span></div><div class="content">[TOC]
-Unity 2D
-运送车游戏
-什么是方法
-方法是让利用方法块让我们的游戏去做事情。
-我们可以：
 
-使用Unity里已经存在的方法
-使用我们自己创建的方法
 
-方法的创建和调用
+1
+{id: 2, name: “李四”, age: 20}
 
-当我们创建方法后，我们给了方法名称然后告诉方法我们怎么做
-当我们调用方法时，我们想要在这里执行该方法。
 
-我们编辑Driver.cs文件：
-123456789101112131415161718using System.Collections;using System.Collections.Generic;using UnityEngine;public class Driver : MonoBehaviour&#123;    // Start is called before the first frame update    void Start()    &#123;            &#125;    // Update is called once per frame    void Update()    &#123;            &#125;&#125;
-我们可以看到 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/07/29/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="操作系统"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/07/29/%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" title="操作系统">操作系统</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-07-29T06:15:37.000Z" title="发表于 2023-07-29 14:15:37">2023-07-29</time></span></div><div class="content">课程使用的操作系统
-XV6，在RISC-V下运行，
-</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/06/18/AI%E5%8A%A8%E7%94%BB/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/06/18/AI%E5%8A%A8%E7%94%BB/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-06-17T23:26:21.210Z" title="发表于 2023-06-18 07:26:21">2023-06-18</time></span></div><div class="content"></div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/#content-inner">7</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/2.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">THYLOVEZQ</div><div class="author-info__description">THYLOVEZQ的小家,欢迎访问</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">69</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/THYLOVEZJ"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户交友网站项目"/></a><div class="content"><a class="title" href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目">用户交友网站项目</a><time datetime="2023-11-12T04:20:52.000Z" title="发表于 2023-11-12 12:20:52">2023-11-12</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle"/></a><div class="content"><a class="title" href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle">Gradle</a><time datetime="2023-11-11T07:33:57.000Z" title="发表于 2023-11-11 15:33:57">2023-11-11</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java NIO"/></a><div class="content"><a class="title" href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO">Java NIO</a><time datetime="2023-11-07T13:07:16.000Z" title="发表于 2023-11-07 21:07:16">2023-11-07</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gitlab"/></a><div class="content"><a class="title" href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab">Gitlab</a><time datetime="2023-11-04T09:48:30.000Z" title="发表于 2023-11-04 17:48:30">2023-11-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/11/03/C++/C/" title="C++"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="C++"/></a><div class="content"><a class="title" href="/2023/11/03/C++/C/" title="C++">C++</a><time datetime="2023-11-03T15:40:51.000Z" title="发表于 2023-11-03 23:40:51">2023-11-03</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
+
+MySQL不会对插入数据做校验，你可以改变数据库存储的结构
+MySQL是关联性
+例如有三张表
+tb_user表示用户表：
+
+
+
+id
+name
+age
+
+
+
+
+1
+张三
+18
+
+
+2
+李四
+20
+
+
+
+tb_item表示商品表
+
+
+
+id
+title
+price
+
+
+
+
+9
+华为Mate10
+3020
+
+
+10
+荣耀
+3000
+
+
+
+tb_order表示订单表
+
+
+
+id
+user_id
+item_id
+
+
+
+
+1
+1
+10
+
+
+2
+1
+20
+
+
+
+NoSQL是非关联性
+123456 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2024/06/25/Java%20Web/MyBatisPlus/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/25/Java%20Web/MyBatisPlus/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-25T14:57:58.379Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></span></div><div class="content">[TOC]
+MyBatis Plus
+快速入门
+要使用MyBatis Plus，需要按下面步骤操作：
+
+引入MybatisPlus的起步依赖
+定义Mapper并继承BaseMapper
+
+MyBatisPlus官方提供了starter，其中集成了Mybatis和MybatisPlus的所有功能，并且实现了自动装配效果。
+因此我们可以用MybatisPlus的starter代替Mybatis的starter：
+12345&lt;!--MybatisPlus--&gt;&lt;dependency&gt;	&lt;groupId&gt;com.baomidou&lt;/groupId&gt;	&lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;    &lt;/dependency&gt;
+自定义的Mapper继承MybatisPlus提供的BaseMapper接口：
+12public interface RoomMapper extends BaseMapper&lt;Room&gt; &#123;&#125;
+My ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2024/06/25/AI%E5%8A%A8%E7%94%BB/AI%E5%8A%A8%E7%94%BB/" title="无题">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"></a></div><div class="recent-post-info"><a class="article-title" href="/2024/06/25/AI%E5%8A%A8%E7%94%BB/AI%E5%8A%A8%E7%94%BB/" title="无题">无题</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2024-06-25T14:57:58.360Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/12/10/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/node/" title="node">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="node"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/12/10/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/node/" title="node">node</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-12-10T09:38:22.000Z" title="发表于 2023-12-10 17:38:22">2023-12-10</time></span></div><div class="content">为什么使用socket.io
+相比于Websocket，socket.io有以下优点：
+
+跨平台支持：Socket.io可以在不同平台上运行，包括浏览器和服务器端。它提供了一个统一的接口，使得在不同环境下使用时更加方便。
+实时性：与传统的HTTP通信相比，Socket.io提供了更实时的双向通信。这意味着服务器可以即时向客户端推送数据，而不需要客户端先发起请求。
+自动重新连接：Socket.io具有自动重新连接的功能，这意味着如果连接断开，它会自动尝试重新连接，以确保持续的通信。
+支持多种传输协议：Socket.io可以使用多种传输协议，包括WebSocket、Ajax长轮询、IFrame流等。这使得在不同情况下选择合适的传输方式变得更加灵活。
+
+Express
+如何发送HTTP请求
+
+下载express依赖
+
+1npm i express
+
+编写下面的代码
+
+12345678910111213const express = require(&#x27;express&#x27;)const app = express();app.get(&#x27;/&#x27;, (req, re ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/11/18/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/CSS%E5%9F%BA%E7%A1%80/" title="CSS基础">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="CSS基础"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/18/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/CSS%E5%9F%BA%E7%A1%80/" title="CSS基础">CSS基础</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-18T02:43:28.000Z" title="发表于 2023-11-18 10:43:28">2023-11-18</time></span></div><div class="content">Natour项目
+Headers
+在本节中，我们将介绍一些基本的css方法和属性：
+line-height
+line-height（行高）是指文本行与行之间的垂直空间，通常用于排版和网页设计中。它也被称为传统排版中的“行间距”（leading）。通过调整line-height，可以改变文本行之间的垂直间距，从而影响文本的整体外观和可读性。
+在CSS（层叠样式表）中，可以使用line-height属性来设置行高。以下是一个示例：
+123p &#123;  line-height: 1.5; /* 这可以是一个无单位的数字，长度，百分比等。 */&#125;
+在这个例子中，段落（&lt;p&gt;）的行高设置为文本字体大小的1.5倍。
+vh是什么
+vh 是 CSS 中的长度单位，表示相对视口高度的百分比。一个视口（viewport）是浏览器中用于显示网页的区域，而 vh 单位表示视口的高度的百分比。
+具体来说，1 vh 等于视口高度的 1%，100 vh 等于整个视口的高度。这个单位通常用于创建基于视口高度的动态和响应式布局。例如，如果你想确保一个元素的高度始终是视口高度的一半，你可以这样 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="用户交友网站项目"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/12/%E7%94%A8%E6%88%B7%E4%BA%A4%E5%8F%8B%E7%BD%91%E7%AB%99%E9%A1%B9%E7%9B%AE/" title="用户交友网站项目">用户交友网站项目</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-12T04:20:52.000Z" title="发表于 2023-11-12 12:20:52">2023-11-12</time></span></div><div class="content">用户交友网站
+介绍：帮助大家找到志同道合的伙伴，移动端H5
+需求分析
+
+用户去添加标签，标签的分类（要有哪些标签，怎么把标签进行分类）
+主动搜索：允许用户根据标签搜索其他用户
+
+Redis缓存 + 本地
+
+
+组队：
+
+创建队伍
+加入队伍
+根据标签查询队伍
+邀请其他人
+
+
+推荐
+
+相似度计算算法 + 本地分布式计算
+
+
+允许用户修改标签
+
+技术栈
+前端
+
+Vue3开发框架（提高页面开发效率）
+Vant UI（基于Vue的移动组件库）（React版）
+Vite（打包工具，快）
+Nginx来单机部署
+
+后端
+
+Java编程语言+SpringBoot框架
+SpringMVC + MyBatis + Mybatis Plus
+MySQL 数据库
+Redis缓存
+Swagger + Knife4j接口文档
+
+第一期计划
+
+前端项目初始化
+数据库表设计
+前端主页
+数据库表设计
+
+标签表
+用户表
+
+
+开发后端 - 根据标签搜索用户
+开发前端 - 根据标签搜索用户
+
+前端项目初始化
+用脚手架初始化项目
+1234567891011121314PS D:\vue-proj&gt; yarn create v ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gradle"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/11/%E5%AE%89%E5%8D%93%E5%BC%80%E5%8F%91/Gradle/" title="Gradle">Gradle</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-11T07:33:57.000Z" title="发表于 2023-11-11 15:33:57">2023-11-11</time></span></div><div class="content">[TOC]
+什么是Gradle
+Gradle构建工具是一个快速，可靠和灵活的开源构建自动化工具，具有优雅且可扩展的声明性构建语言。
+在这个手册中，Gradle构建工具通常缩写为Gradle。
+为什么使用Gradle
+Gradle是一个广泛使用且成熟的工具，拥有活跃的社区和强大的开发生态系统。
+
+
+Gradle是JVM中最受欢迎的构建系统，也是Android和Kotlin Multi-Platform项目的默认构建系统。它拥有丰富的社区插件生态系统。
+
+
+Gradle可以使用其内置功能，第三方插件或自定义构建逻辑自动化各种软件构建场景。
+
+
+Gradle提供了高级别，声明式和富有表现力的构建语言，使得编写和阅读构建逻辑变得容易。
+
+
+Gradle快速，可扩展，并可以构建任何大小和复杂度的项目。
+
+
+Gradle能够在获得增量构建，构建缓存和并行执行等优化的同时产生可靠的结果。
+
+
+Gradle支持的语言和框架
+Gradle支持Android，Java，Kotlin，Groovy，Scala，JavaScript，C/C++
+合适的IDES
+所有主流的IDES都支持Gradle，包括：An ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java NIO"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/07/Java%E5%9F%BA%E7%A1%80/Java-NIO/" title="Java NIO">Java NIO</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-07T13:07:16.000Z" title="发表于 2023-11-07 21:07:16">2023-11-07</time></span></div><div class="content">Java NIO概述
+Java NIO是从Java1.4版本引入的一个新的API，可以代替标准的Java IO API。NIO支持面向缓冲区的，基于通道的IO操作。NIO将以更加高效的方式进行文件的读写操作。
+阻塞IO
+通常在进行同步I/O操作时，如果读取数据，代码会阻塞直至有可供读取的数据，同样，写入调用会阻塞直至数据能够写入。传统的Server/Client模式会基于TPR（Thread Per Request），服务器会为每个客户端建立一个线程，由该线程单独负责处理一个客户请求。这种模式带来的一个问题就是线程数量的剧增。大量的线程会增大服务器的开销。大多数的实现为了避免这个问题。都采用了线程池模型，并设置线程池线程的最大数量，这带来了新的问题，如果线程池中有100个线程，而有100个用户都在进行大文件下载，会导致第101个用户的请求无法响应。
+非阻塞IO
+NIO中非阻塞IO采用了基于Reactor模式的工作方式，I/O调用不会被阻塞，相反是注册感兴趣的特定I/O事件，如可读数据到达，新的套接字连接等等。在发生特定事件时，系统再通知我们，NIO中实现非阻塞I/O的核心对象就是Sel ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Gitlab"></a></div><div class="recent-post-info"><a class="article-title" href="/2023/11/04/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/Gitlab/" title="Gitlab">Gitlab</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2023-11-04T09:48:30.000Z" title="发表于 2023-11-04 17:48:30">2023-11-04</time></span></div><div class="content">传统应用发布模式
+
+开发团队
+
+在开发环境中完成软件开发，单元测试，测试通过，提交到代码版本管理库
+
+运维团队
+
+把应用部署到测试环境，供QA团队测试，测试通过后部署到生产环境。
+
+QA团队
+
+进行测试，测试通过后通知部署人员发布到生产环境。
+代码版本管理
+Gitlab主要有以下功能。
+
+代码审查
+问题跟踪
+动态订阅
+易于扩展
+项目wiki
+多角色项目管理
+项目代码在线预览
+CI工具集成
+
+持续集成
+jenkins主要有以下功能。
+
+可扩展自动化服务器
+安装配置简单
+丰富的插件库
+分布式架构设计
+支持所有的平台
+可视化管理界面
+
+Gitlab内置持续集成
+持续集成CI
+
+集成团队每个开发人员提交的代码到代码存储库中。
+开发人员在Merge或者Pull请求合并拉取新代码。
+在提交或者合并到代码存储库之前，会触发了构建，测试和新代码验证的管道。
+CI可帮助您在开发周期的早期发现并减少错误。
+
+持续交付
+
+可通过结构化的部署管道确保将经过CI验证的代码交付给您的应用程序。
+CD可以将经过验证的代码更快的交付给您的程序。
+
+GitLab CI/CD组件
+GitLab CI/CD
+
+GitLab ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/#content-inner">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/#content-inner">9</a><a class="extend next" rel="next" href="/page/3/#content-inner"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/2.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">THYLOVEZQ</div><div class="author-info__description">THYLOVEZQ的小家,欢迎访问</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/THYLOVEZJ"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/openGL/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/openGL/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.527Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/openEMS/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/openEMS/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.525Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/FDTD/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/FDTD/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.514Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.506Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.466Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div></div></div><div class="card-widget" id="card-newest-comments"><div class="item-headline"><i class="fas fa-comment-dots"></i><span>最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div><div class="card-widget card-categories"><div class="item-headline">
             <i class="fas fa-folder-open"></i>
             <span>分类</span>
             <a class="card-more-btn" href="/categories/" title="查看更多">
     <i class="fas fa-angle-right"></i></a>
             </div>
             <ul class="card-category-list" id="aside-cat-list">
-            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Github%E4%BD%BF%E7%94%A8/"><span class="card-category-list-name">Github使用</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JDBC/"><span class="card-category-list-name">JDBC</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaEE/"><span class="card-category-list-name">JavaEE</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaSE/"><span class="card-category-list-name">JavaSE</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E5%88%B7%E9%A2%98/"><span class="card-category-list-name">Leetcode刷题</span><span class="card-category-list-count">20</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">4</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PYQT5/"><span class="card-category-list-name">PYQT5</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/django%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">django学习</span><span class="card-category-list-count">2</span></a></li>
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Github%E4%BD%BF%E7%94%A8/"><span class="card-category-list-name">Github使用</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JDBC/"><span class="card-category-list-name">JDBC</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaEE/"><span class="card-category-list-name">JavaEE</span><span class="card-category-list-count">6</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/JavaSE/"><span class="card-category-list-name">JavaSE</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Leetcode%E5%88%B7%E9%A2%98/"><span class="card-category-list-name">Leetcode刷题</span><span class="card-category-list-count">20</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/MySQL/"><span class="card-category-list-name">MySQL</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/PYQT5/"><span class="card-category-list-name">PYQT5</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/django%E5%AD%A6%E4%B9%A0/"><span class="card-category-list-name">django学习</span><span class="card-category-list-count">2</span></a></li>
             </ul></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span><a class="card-more-btn" href="/archives/" title="查看更多">
-    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/04/"><span class="card-archive-list-date">四月 2023</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/03/"><span class="card-archive-list-date">三月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">69</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2023-11-15T15:35:23.997Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By THYLOVEZQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function subtitleType () {
+    <i class="fas fa-angle-right"></i></a></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/06/"><span class="card-archive-list-date">六月 2024</span><span class="card-archive-list-count">14</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/12/"><span class="card-archive-list-date">十二月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/11/"><span class="card-archive-list-date">十一月 2023</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/10/"><span class="card-archive-list-date">十月 2023</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/09/"><span class="card-archive-list-date">九月 2023</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/08/"><span class="card-archive-list-date">八月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/07/"><span class="card-archive-list-date">七月 2023</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><span class="card-archive-list-count">2</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">86</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">本站总访问量 :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2024-06-25T14:58:44.698Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By THYLOVEZQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script>function subtitleType () {
   if (true) { 
     var typed = new Typed("#subtitle", {
       strings: "又是偷看THY的一天 love you bro~".split(","),

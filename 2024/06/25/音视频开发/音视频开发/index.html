@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>THYLOVEZQ的博客 | THYLOVEZQ的博客</title><meta name="author" content="THYLOVEZQ"><meta name="copyright" content="THYLOVEZQ"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="[TOC] 音视频开发 音视频录制原理  音视频播放原理  图像基础概念  像素：像素是一个图片的基本单位，pix是英语单词picture的简写，加上英语单词&quot;元素element&quot;，就得到了&quot;pixel&quot;，简称px，所以&quot;像素&quot;有&quot;图像元素&quot;之意。 分辨率：是指图像的大小或者尺寸。比如1920*1080 位深：是指在记">
+<meta property="og:type" content="article">
+<meta property="og:title" content="THYLOVEZQ的博客">
+<meta property="og:url" content="http://example.com/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/index.html">
+<meta property="og:site_name" content="THYLOVEZQ的博客">
+<meta property="og:description" content="[TOC] 音视频开发 音视频录制原理  音视频播放原理  图像基础概念  像素：像素是一个图片的基本单位，pix是英语单词picture的简写，加上英语单词&quot;元素element&quot;，就得到了&quot;pixel&quot;，简称px，所以&quot;像素&quot;有&quot;图像元素&quot;之意。 分辨率：是指图像的大小或者尺寸。比如1920*1080 位深：是指在记">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg">
+<meta property="article:published_time" content="2024-06-25T14:57:58.506Z">
+<meta property="article:modified_time" content="2024-05-30T15:07:12.167Z">
+<meta property="article:author" content="THYLOVEZQ">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'THYLOVEZQ的博客',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-05-30 23:07:12'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="THYLOVEZQ的博客" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/./img/2.jfif" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">THYLOVEZQ的博客</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">无题</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2024-06-25T14:57:58.506Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2024-05-30T15:07:12.167Z" title="更新于 2024-05-30 23:07:12">2024-05-30</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>[TOC]</p>
+<h1>音视频开发</h1>
+<h2 id="音视频录制原理">音视频录制原理</h2>
+<p><img src=".%5Cassets%5C%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8E%9F%E7%90%86.png" alt=""></p>
+<h2 id="音视频播放原理">音视频播放原理</h2>
+<p><img src=".%5Cassets%5C%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%8E%9F%E7%90%86.png" alt=""></p>
+<h2 id="图像基础概念">图像基础概念</h2>
+<ul>
+<li>像素：像素是一个图片的基本单位，pix是英语单词picture的简写，加上英语单词&quot;元素element&quot;，就得到了&quot;pixel&quot;，简称px，所以&quot;像素&quot;有&quot;图像元素&quot;之意。</li>
+<li>分辨率：是指图像的大小或者尺寸。比如1920*1080</li>
+<li>位深：是指在记录数字图像的颜色时，计算机实际上使用每个像素需要的位深来表示的。比如红色分量用8bit。</li>
+<li>帧率：在1秒种时间内传输的图片的帧数，也可以理解为图形处理器每秒钟能够刷新几次。比如25fps表示一秒有25张图片。</li>
+<li>码率：视频文件在单位时间内使用的数据流量。比如1Mbps</li>
+<li>Stride：指在内存中每行像素所占的空间。为了实现内存对齐每行像素在内存中所占的空间并不一定是图像的宽度</li>
+</ul>
+<p>像素是一个图片的基本单位，pix是英语单词picture的简写：</p>
+<p>例如2500*2000的图片就是指横向有2500个像素点，竖向有2000个像素点，总共是500万个像素，也俗称500万像素照片。</p>
+<ul>
+<li>分辨率</li>
+</ul>
+<p>图像（或视频）的分辨率是指图像的大小或尺寸，我们通常用像素来表示图像的尺寸。</p>
+<p>例如2500*2000的照片就是指横向（宽）有2500个像素点，竖向（高）有2000个像素点。</p>
+<p>常见的分辨率：</p>
+<p>360P(640*360)、720P(1280*720)、1080P(1920*1080)、4K(3840*2160)、8K(7680*4320)</p>
+<ul>
+<li>位深：</li>
+</ul>
+<p>我们看到的彩色图片，都有三个通道，分别为红®、绿(G)、蓝(B)通道。（如果需要透明度则还有alpha分量）</p>
+<p>通常每个通道用8bit表示，8bit能表示256中颜色，所以可以组成256*256*256=16777216=1677万种颜色</p>
+<p>这里的8bit就是我们讲的位深</p>
+<p>每个通道的位深越大，能够表示的颜色值就越大，比如现在高端电视说的10bit色彩，即是每个通道用10bit表示，每个通道有1024种颜色。1024*1024*1024约为107374万色，是8bit的64倍。</p>
+<p>常见的颜色还是8bit居多</p>
+<ul>
+<li>帧率</li>
+</ul>
+<p>帧率即FPS(每秒有多少帧画面)，经常玩游戏的同学应该对这个词会很熟悉。我们玩游戏时，FPS帧率越高就代表游戏画面越流畅，越低则越卡顿。视频也是如此。</p>
+<p>由于视觉图像在视网膜的暂时停留，一般图像帧率能达到24帧，我们就认为图像是连续动态的。</p>
+<p>电影帧率一般是24fps</p>
+<p>电视剧一般是25fps</p>
+<p>监控行业常用25fps</p>
+<p>音视频通话常用15fps</p>
+<p>帧率越高，画面越流畅，需要的设备性能越高。</p>
+<ul>
+<li>码率</li>
+</ul>
+<p>视频文件在单位时间内使用的数据流量。比如1Mbps</p>
+<p>大多数情况下码率越高，分辨率越高，也就越清晰。但模糊的视频文件大小（码率）也可以很大，分辨率小的视频文件可能也比分辨率大的视频文件清晰。</p>
+<p>对于同一个原始图像源时，同样的编码算法，则码率越高，图像的失真就会越小，视频画面就会越清晰</p>
+<ul>
+<li>RGB</li>
+</ul>
+<p>我们前面已经讲过RGB色彩表示，这里我们重点讲RGB的排列。通常的图像像素是按RGB顺序进行排列，但有些图像处理要转成其他顺序，比如openCV经常转成BGR的排列方式</p>
+<h2 id="YUV">YUV</h2>
+<ul>
+<li>与我们熟知RGB类似，YUV也是一种颜色编码方法，它是指将亮度参量（Y: Luminance或Luma）和色度参量（UV：Chrominance或Chroma）分开进行表示的像素编码格式。</li>
+<li>这样分开的好处就是不但可以避免相互干扰，没有UV信息一样可以显示完整图像，从而解决了彩色电视和黑白电视的兼容问题</li>
+</ul>
+<p>YUV格式：有两大类：planar和packed。</p>
+<ul>
+<li>对于planar的YUV格式，先连续存储所有像素点的Y，紧接着存储所有像素点的U，随后是所有像素点的V。</li>
+<li>对于packed的YUV格式，每个像素点的Y,U,V是连续交叉存储的。</li>
+</ul>
+<h2 id="音视频应用场景">音视频应用场景</h2>
+<ul>
+<li>互动直播系统</li>
+<li>娱乐直播系统</li>
+<li>音视频特效</li>
+<li>音视编辑</li>
+</ul>
+<p>常用工具</p>
+<ul>
+<li>ffmpeg</li>
+<li>ffplay</li>
+<li>vlc</li>
+</ul>
+<h2 id="编译ffmpeg与ffplay">编译ffmpeg与ffplay</h2>
+<h3 id="Window10下安装FFmpeg">Window10下安装FFmpeg</h3>
+<ol>
+<li>FFmpeg命令行</li>
+<li>安装QT</li>
+</ol>
+<h3 id="Linux基础">Linux基础</h3>
+<p>Linux的一些命令</p>
+<ul>
+<li>ls</li>
+<li>cd</li>
+<li>pwd</li>
+<li>mkdir</li>
+<li>cp</li>
+<li>rm</li>
+<li>sudo</li>
+<li>pkg-config</li>
+</ul>
+<p>Linux中环境变量的配置</p>
+<ul>
+<li>环境变量</li>
+</ul>
+<p>PATH、PKG_CONFIG_PATH</p>
+<ul>
+<li>环境变量的变更</li>
+</ul>
+<p>~/.bashrc  |  ~/.bash_profile</p>
+<blockquote>
+<p>记得在配置环境变量结束后要source ~/.bashrc</p>
+</blockquote>
+<p>我们可以通过<code>which</code>来查看命令所在路径</p>
+<h3 id="Linux-Mac下编译ffmpeg-ffplay">Linux/Mac下编译ffmpeg/ffplay</h3>
+<p>先使用git下载ffmpeg代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://git.ffmpeg.org/ffmpeg.git ffmpeg</span><br></pre></td></tr></table></figure>
+<p>在初次编译时可能需要下载yasm</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">下载：wget http://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz</span><br><span class="line">解压：tar zxvf yasm-1.3.0.tar.gz</span><br><span class="line">切换路径： cd yasm-1.3.0</span><br><span class="line">执行配置： ./configure</span><br><span class="line">编译：make</span><br><span class="line">安装：make install</span><br></pre></td></tr></table></figure>
+<p>然后编译ffmpeg</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">./configure --prefix=/usr/local/ffmpeg --enable-debug=3</span><br><span class="line">make -j 4</span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+<p>其中–prefix的参数是安装路径</p>
+<h3 id="Windows下编译ffmpeg和ffplay">Windows下编译ffmpeg和ffplay</h3>
+<ul>
+<li>Cygwin</li>
+<li>MinGW</li>
+<li>VS</li>
+</ul>
+<p>Cygwin(Cygnus Windows)</p>
+<ul>
+<li>
+<p>Cygin直接安装使用</p>
+</li>
+<li>
+<p>MinGW + MSYS2（推荐）</p>
+</li>
+</ul>
+<h3 id="ffmpeg-ffplay-ffprobe区别">ffmpeg/ffplay/ffprobe区别</h3>
+<p>ffmpeg</p>
+<p>Hyper fast Audio and Video encoder：超快音视频编码器</p>
+<p>ffplay</p>
+<p>Simple Media player：简单媒体播放器</p>
+<p>ffprobe</p>
+<p>Simple multimedia streams analyzer：简单多媒体流分析器</p>
+<h3 id="ffmpeg命令查看帮助文档">ffmpeg命令查看帮助文档</h3>
+<p>基本信息：ffmpeg -h</p>
+<p>高级信息： ffmpeg -h long</p>
+<p>所有信息： ffmpeg -h full</p>
+<h3 id="ffmpeg音视频处理流程">ffmpeg音视频处理流程</h3>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![ffmpeg音视频处理流程](D:\code\docs\blogdocs\音视频开发\assets\ffmpeg音视频处理流程.png)ffmpeg -i test_1920x1080.mp4 -acodec copy -vcodec libx264 -s 1280x720 test_1280x720.flv</span><br><span class="line">ffmpeg -i test_1920x1080.mp4 -acodec copy -vcodec libx265 -s 1280x720 test_1280x720.mkv</span><br></pre></td></tr></table></figure>
+<p><img src="D:%5Ccode%5Cdocs%5Cblogdocs%5C%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91%5Cassets%5Cffmpeg%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B.png" alt=""></p>
+<h2 id="WebRTC">WebRTC</h2>
+<h3 id="WebRTC概述">WebRTC概述</h3>
+<ul>
+<li>音视频处理+即时通讯的开源库</li>
+<li>2010年Google将其开源</li>
+<li>它是一个非常优秀的多媒体框架，跨平台</li>
+<li>音视频实时互动</li>
+<li>游戏、即时通讯、文件传输</li>
+<li>它是一个百宝箱，传输，音视频处理</li>
+</ul>
+<p><img src="https://ask.qcloudimg.com/http-save/yehe-3891894/ur39516uox.png" alt="img"></p>
+<h3 id="WebRTC的目录结构">WebRTC的目录结构</h3>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>api</td>
+<td>WebRTC接口层，浏览器都是通过该接口调用WebRTC</td>
+</tr>
+<tr>
+<td>call</td>
+<td>数据流的管理层，Call代表同一个端点的所有数据的流入流出</td>
+</tr>
+<tr>
+<td>video</td>
+<td>与视频相关的逻辑</td>
+</tr>
+<tr>
+<td>audio</td>
+<td>与音频相关的逻辑</td>
+</tr>
+<tr>
+<td>common_audio</td>
+<td>音频算法相关</td>
+</tr>
+<tr>
+<td>common_video</td>
+<td>视频算法相关</td>
+</tr>
+<tr>
+<td>media</td>
+<td>与多媒体相关的逻辑处理，如编解码的逻辑处理</td>
+</tr>
+<tr>
+<td>logging</td>
+<td>日志相关</td>
+</tr>
+<tr>
+<td>module</td>
+<td>最重要的目录，子模块</td>
+</tr>
+<tr>
+<td>pc</td>
+<td>Peer Connection，连接相关的逻辑层</td>
+</tr>
+<tr>
+<td>p2p</td>
+<td>端对端相关代码，stun，turn</td>
+</tr>
+<tr>
+<td>rtc_base</td>
+<td>基础代码，如线程，锁相关的统一接口代码</td>
+</tr>
+<tr>
+<td>rtc_tool</td>
+<td>音视频分析相关的工具代码</td>
+</tr>
+<tr>
+<td>tool_webrtc</td>
+<td>WebRTC测试相关的工具代码，如网络模拟器</td>
+</tr>
+<tr>
+<td>system_wrappers</td>
+<td>与具体操作系统相关的代码，如CPU特性，原子操作等</td>
+</tr>
+<tr>
+<td>stats</td>
+<td>存放各种数据统计相关的类</td>
+</tr>
+<tr>
+<td>sdk</td>
+<td>存放与Android和IOS层的代码，如视频采集与渲染</td>
+</tr>
+</tbody>
+</table>
+<h4 id="WebRTC-Modules目录">WebRTC Modules目录</h4>
+<table>
+<thead>
+<tr>
+<th>目录</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>audio_coding</td>
+<td>音频编解码相关代码</td>
+</tr>
+<tr>
+<td>audio_device</td>
+<td>音频采集与音频播放相关代码</td>
+</tr>
+<tr>
+<td>audio_mixer</td>
+<td>混音相关代码</td>
+</tr>
+<tr>
+<td>audio_processing</td>
+<td>音视频前后处理的相关代码</td>
+</tr>
+<tr>
+<td>bitrate_controller</td>
+<td>码率控制相关代码</td>
+</tr>
+<tr>
+<td>congestion_controller</td>
+<td>流控相关代码</td>
+</tr>
+<tr>
+<td>desktop_capture</td>
+<td>桌面采集相关的代码</td>
+</tr>
+<tr>
+<td>pacing</td>
+<td>码率探测以及平滑处理相关代码</td>
+</tr>
+<tr>
+<td>remote_bitrate_estimator</td>
+<td>远端码率估算相关的代码</td>
+</tr>
+<tr>
+<td>rtp_rtcp</td>
+<td>rtp/rtcp协议相关代码</td>
+</tr>
+</tbody>
+</table>
+<h3 id="WebRTC重要类">WebRTC重要类</h3>
+<ul>
+<li>MediaStream</li>
+<li>RTCPeerConnection</li>
+<li>RTCDataChannel</li>
+</ul>
+<h3 id="PeerConnection调用过程">PeerConnection调用过程</h3>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0ec05fc2f0964e9fb79328481835c45f~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="img"></p>
+<h3 id="Web服务器">Web服务器</h3>
+<ul>
+<li>Nodejs</li>
+<li>Nginx</li>
+<li>Apache</li>
+</ul>
+<h2 id="WebRTC设备管理">WebRTC设备管理</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">var ePromise = navigator.mediaDevices.enumerateDevices();</span><br></pre></td></tr></table></figure>
+<ul>
+<li>MediaDevicesInfo</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deviceID</td>
+<td>设备ID</td>
+</tr>
+<tr>
+<td>label</td>
+<td>设备的名字</td>
+</tr>
+<tr>
+<td>kind</td>
+<td>设备的种类</td>
+</tr>
+<tr>
+<td>groupID</td>
+<td>两个设备groupID相同，说明是同一个设备</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> audioSource = <span class="built_in">document</span>.querySelector(<span class="string">&quot;select#audioSource&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> audioOutput = <span class="built_in">document</span>.querySelector(<span class="string">&quot;select#audioOutput&quot;</span>);</span><br><span class="line"><span class="keyword">var</span> vedioSource = <span class="built_in">document</span>.querySelector(<span class="string">&quot;select#videoSource&quot;</span>);</span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span>(!navigator.mediaDevices ||</span><br><span class="line">        !navigator.mediaDevices.enumerateDevices)&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="string">&#x27;enumerateDevices is not supported!&#x27;</span>);</span><br><span class="line"> </span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        navigator.mediaDevices.enumerateDevices()</span><br><span class="line">        .then(gotDevices)</span><br><span class="line">        .catch(handleError);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gotDevices</span>(<span class="params">deviceInfos</span>)</span>&#123;</span><br><span class="line">        deviceInfos.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">deviceInfo</span>)</span>&#123;</span><br><span class="line">                <span class="built_in">console</span>.log(deviceInfo.kind + <span class="string">&quot;: label = &quot;</span></span><br><span class="line">                + deviceInfo.label + <span class="string">&quot;: id = &quot;</span></span><br><span class="line">                + deviceInfo.deviceId + <span class="string">&quot;: groupId = &quot;</span></span><br><span class="line">                + deviceInfo.groupId);</span><br><span class="line"> </span><br><span class="line">        <span class="keyword">var</span> option = <span class="built_in">document</span>.createElement(<span class="string">&#x27;option&#x27;</span>);</span><br><span class="line">        option.text = deviceInfo.label;</span><br><span class="line">        option.value = deviceInfo.deviceId;</span><br><span class="line">        <span class="keyword">if</span>(deviceInfo.kind === <span class="string">&#x27;audioinput&#x27;</span>)&#123;</span><br><span class="line">                audioSource.appendChild(option);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(deviceInfo.kind === <span class="string">&#x27;audiooutput&#x27;</span>)&#123;</span><br><span class="line">                audioOutput.appendChild(option);</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(deviceInfo.kind === <span class="string">&#x27;videoinput&#x27;</span>)&#123;</span><br><span class="line">                videoSource.appendChild(option);</span><br><span class="line">        &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err.name + <span class="string">&quot; : &quot;</span> + err.message);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span> WebRTC get audio and video devices <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">label</span>&gt;</span>audio input device:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;audioSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">label</span>&gt;</span>audio output device:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;audioOutput&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">label</span>&gt;</span>video input device:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;videoSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;./js/index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="音视频采集API">音视频采集API</h3>
+<p>基本格式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> promise = navigator.mediaDevices.getUserMedia(constraints);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>MediaStreamConstraints</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">title</span>&gt;</span> WebRTC get audio and video devices <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">video</span> <span class="attr">autoplay</span> <span class="attr">playsinline</span> <span class="attr">id</span> = <span class="string">&quot;player&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> videoPlayer = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;video#player&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gotMediaStream</span>(<span class="params">stream</span>) </span>&#123;</span><br><span class="line">    videoPlayer.srcObject = stream;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;getUserMedia error: &#x27;</span>, err);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;getUserMedia is not support&#x27;</span>);</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">var</span> constrants = &#123;</span><br><span class="line">        <span class="attr">video</span> : <span class="literal">true</span>,</span><br><span class="line">        <span class="attr">audio</span> : <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    navigator.mediaDevices.getUserMedia(constrants)</span><br><span class="line">        .then(gotMediaStream)</span><br><span class="line">        .catch(handleError);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="getUserMedia的不同实现">getUserMedia的不同实现</h3>
+<ul>
+<li>getUserMedia</li>
+<li>webkitGetUserMedia</li>
+<li>mozGetUserMedia</li>
+</ul>
+<p>自己实现：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> getUserMedia = navigator.getUserMedia ||  navigator.webkitGetUserMedia || navigator.mozGetUserMedia</span><br></pre></td></tr></table></figure>
+<h3 id="视频约束">视频约束</h3>
+<ul>
+<li>width：视频宽度</li>
+<li>height：视频高度</li>
+<li>aspectRatio：</li>
+<li>frameRate：帧率</li>
+<li>facingMode
+<ul>
+<li>user：前置摄像头</li>
+<li>environment：后置摄像头</li>
+<li>left：前置左侧摄像头</li>
+<li>right：前置右侧摄像头</li>
+</ul>
+</li>
+<li>resizeMode</li>
+</ul>
+<h3 id="音频约束">音频约束</h3>
+<ul>
+<li>volume</li>
+<li>sampleRate</li>
+<li>sampleSize</li>
+<li>echoCancellation：开启回音消除</li>
+<li>autoGainControl</li>
+<li>noiseSuppression：降噪</li>
+<li>latency：延迟</li>
+<li>channelCount：单声道还是双声道</li>
+<li>deviceID：设备切换</li>
+<li>groupID</li>
+</ul>
+<h3 id="视频渲染特效">视频渲染特效</h3>
+<p>浏览器特效</p>
+<ul>
+<li>CSS filter，-webkit-filter/filter</li>
+<li>如何将video和filter关联</li>
+<li>OpenGL/Metal</li>
+</ul>
+<p>支持的特效种类</p>
+<table>
+<thead>
+<tr>
+<th>特效</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>grayscale</td>
+<td>灰度</td>
+</tr>
+<tr>
+<td>opacity</td>
+<td>透明度</td>
+</tr>
+<tr>
+<td>sepia</td>
+<td>褐色</td>
+</tr>
+</tbody>
+</table>
+<h3 id="视频中获取图片">视频中获取图片</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>WebRTC学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- autoplay属性表示视频流字节处理完后会自动播放 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">video</span> <span class="attr">autoplay</span> <span class="attr">playsinline</span>&gt;</span><span class="tag">&lt;/<span class="name">video</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">id</span>=<span class="string">&quot;capture&quot;</span>&gt;</span>拍照<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">canvas</span> <span class="attr">id</span>=<span class="string">&quot;canvas&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span>&gt;</span><span class="javascript"></span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> video = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;video&#x27;</span>);   </span></span><br><span class="line"><span class="javascript">        </span></span><br><span class="line"><span class="javascript">        <span class="keyword">if</span>(!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia())&#123;</span></span><br><span class="line"><span class="javascript">            <span class="built_in">console</span>.log(<span class="string">&quot;您的浏览器不支持getUserMedia&quot;</span>)</span></span><br><span class="line"><span class="javascript">        &#125;<span class="keyword">else</span> &#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">var</span> constraints = &#123;                </span></span><br><span class="line"><span class="javascript">                <span class="attr">audio</span>: <span class="literal">false</span>,</span></span><br><span class="line"><span class="javascript">                <span class="attr">video</span>: <span class="literal">true</span></span></span><br><span class="line"><span class="javascript">            &#125;</span></span><br><span class="line"><span class="javascript">            navigator.mediaDevices.getUserMedia(constraints)</span></span><br><span class="line"><span class="javascript">            .then(<span class="function"><span class="keyword">function</span>(<span class="params">stream</span>)</span>&#123;</span></span><br><span class="line"><span class="javascript">                video.srcObject = stream;</span></span><br><span class="line"><span class="javascript">            &#125;)</span></span><br><span class="line"><span class="javascript">            .catch(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">              <span class="built_in">console</span>.log(err.name + <span class="string">&quot;: &quot;</span> + err.message);</span></span><br><span class="line"><span class="javascript">            &#125;);    </span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> capture = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;capture&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> canvas = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;canvas&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        canvas.width = <span class="number">320</span>;</span></span><br><span class="line"><span class="javascript">        canvas.height = <span class="number">240</span>;</span></span><br><span class="line"><span class="javascript">        capture.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            canvas.getContext(<span class="string">&#x27;2d&#x27;</span>).drawImage(video, <span class="number">0</span>, <span class="number">0</span>, canvas.width, canvas.height);</span></span><br><span class="line"><span class="javascript">        &#125;</span></span><br><span class="line"><span class="javascript">    </span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="WebRTC只采集音频数据">WebRTC只采集音频数据</h3>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>WebRTC学习<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">audio</span> <span class="attr">autoplay</span> <span class="attr">controls</span> <span class="attr">id</span>=<span class="string">&quot;audioplayer&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">audio</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;./js/index.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&#x27;use strict&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> audioplayer=<span class="built_in">document</span>.querySelector(<span class="string">&#x27;audio#audioplayer&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">gotMediaStream</span>(<span class="params">stream</span>)</span>&#123;</span><br><span class="line">		audioplayer.srcObject=stream;</span><br><span class="line">		<span class="keyword">return</span> navigator.mediaDevices.enumerateDevices();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">handleError</span>(<span class="params">err</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">&quot;getUserMedia  error:&quot;</span>,err);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">start</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">if</span> (!navigator.mediaDevices||</span><br><span class="line">			!navigator.mediaDevices.getUserMedia) &#123;</span><br><span class="line">		  <span class="built_in">console</span>.log(<span class="string">&quot;getUserMedia is not supported!&quot;</span>)</span><br><span class="line">		  <span class="keyword">return</span>;</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">var</span> constraints=&#123;</span><br><span class="line">			<span class="attr">video</span>:<span class="literal">false</span>,</span><br><span class="line">			<span class="attr">audio</span>:<span class="literal">true</span>,</span><br><span class="line">		&#125;</span><br><span class="line">		navigator.mediaDevices.getUserMedia(constraints)</span><br><span class="line">							  .then(gotMediaStream)</span><br><span class="line">							  .catch(handleError)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">start();</span><br></pre></td></tr></table></figure>
+<h3 id="MediaStream中的方法和事件">MediaStream中的方法和事件</h3>
+<ul>
+<li>MediaStream.addTrack：添加媒体轨</li>
+<li>MediaStream.removeTrack：移除媒体轨</li>
+<li>MediaStream.getVideoTracks：获取媒体轨</li>
+<li>MediaStream.getAudioTracks：获取音频轨</li>
+<li>MediaStream.onaddtrack：当添加媒体轨的事件</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">THYLOVEZQ</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/">http://example.com/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">THYLOVEZQ的博客</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><div class="post-reward"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏</div><div class="reward-main"><ul class="reward-all"><li class="reward-item"><a href="/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/06/25/FDTD/"><img class="prev-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2024/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/./img/2.jfif" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">THYLOVEZQ</div><div class="author-info__description">THYLOVEZQ的小家,欢迎访问</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">86</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">10</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/THYLOVEZJ"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/THYLOVEZJ" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:thy1105864486@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">音视频开发</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BD%95%E5%88%B6%E5%8E%9F%E7%90%86"><span class="toc-number">1.1.</span> <span class="toc-text">音视频录制原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E6%92%AD%E6%94%BE%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">音视频播放原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E5%83%8F%E5%9F%BA%E7%A1%80%E6%A6%82%E5%BF%B5"><span class="toc-number">1.3.</span> <span class="toc-text">图像基础概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#YUV"><span class="toc-number">1.4.</span> <span class="toc-text">YUV</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-number">1.5.</span> <span class="toc-text">音视频应用场景</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%96%E8%AF%91ffmpeg%E4%B8%8Effplay"><span class="toc-number">1.6.</span> <span class="toc-text">编译ffmpeg与ffplay</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Window10%E4%B8%8B%E5%AE%89%E8%A3%85FFmpeg"><span class="toc-number">1.6.1.</span> <span class="toc-text">Window10下安装FFmpeg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux%E5%9F%BA%E7%A1%80"><span class="toc-number">1.6.2.</span> <span class="toc-text">Linux基础</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Linux-Mac%E4%B8%8B%E7%BC%96%E8%AF%91ffmpeg-ffplay"><span class="toc-number">1.6.3.</span> <span class="toc-text">Linux&#x2F;Mac下编译ffmpeg&#x2F;ffplay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows%E4%B8%8B%E7%BC%96%E8%AF%91ffmpeg%E5%92%8Cffplay"><span class="toc-number">1.6.4.</span> <span class="toc-text">Windows下编译ffmpeg和ffplay</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg-ffplay-ffprobe%E5%8C%BA%E5%88%AB"><span class="toc-number">1.6.5.</span> <span class="toc-text">ffmpeg&#x2F;ffplay&#x2F;ffprobe区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg%E5%91%BD%E4%BB%A4%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">1.6.6.</span> <span class="toc-text">ffmpeg命令查看帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ffmpeg%E9%9F%B3%E8%A7%86%E9%A2%91%E5%A4%84%E7%90%86%E6%B5%81%E7%A8%8B"><span class="toc-number">1.6.7.</span> <span class="toc-text">ffmpeg音视频处理流程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebRTC"><span class="toc-number">1.7.</span> <span class="toc-text">WebRTC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#WebRTC%E6%A6%82%E8%BF%B0"><span class="toc-number">1.7.1.</span> <span class="toc-text">WebRTC概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebRTC%E7%9A%84%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.7.2.</span> <span class="toc-text">WebRTC的目录结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#WebRTC-Modules%E7%9B%AE%E5%BD%95"><span class="toc-number">1.7.2.1.</span> <span class="toc-text">WebRTC Modules目录</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebRTC%E9%87%8D%E8%A6%81%E7%B1%BB"><span class="toc-number">1.7.3.</span> <span class="toc-text">WebRTC重要类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#PeerConnection%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B"><span class="toc-number">1.7.4.</span> <span class="toc-text">PeerConnection调用过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">1.7.5.</span> <span class="toc-text">Web服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WebRTC%E8%AE%BE%E5%A4%87%E7%AE%A1%E7%90%86"><span class="toc-number">1.8.</span> <span class="toc-text">WebRTC设备管理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E8%A7%86%E9%A2%91%E9%87%87%E9%9B%86API"><span class="toc-number">1.8.1.</span> <span class="toc-text">音视频采集API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#getUserMedia%E7%9A%84%E4%B8%8D%E5%90%8C%E5%AE%9E%E7%8E%B0"><span class="toc-number">1.8.2.</span> <span class="toc-text">getUserMedia的不同实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E7%BA%A6%E6%9D%9F"><span class="toc-number">1.8.3.</span> <span class="toc-text">视频约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9F%B3%E9%A2%91%E7%BA%A6%E6%9D%9F"><span class="toc-number">1.8.4.</span> <span class="toc-text">音频约束</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E6%B8%B2%E6%9F%93%E7%89%B9%E6%95%88"><span class="toc-number">1.8.5.</span> <span class="toc-text">视频渲染特效</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%86%E9%A2%91%E4%B8%AD%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87"><span class="toc-number">1.8.6.</span> <span class="toc-text">视频中获取图片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WebRTC%E5%8F%AA%E9%87%87%E9%9B%86%E9%9F%B3%E9%A2%91%E6%95%B0%E6%8D%AE"><span class="toc-number">1.8.7.</span> <span class="toc-text">WebRTC只采集音频数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MediaStream%E4%B8%AD%E7%9A%84%E6%96%B9%E6%B3%95%E5%92%8C%E4%BA%8B%E4%BB%B6"><span class="toc-number">1.8.8.</span> <span class="toc-text">MediaStream中的方法和事件</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/openGL/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/openGL/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.527Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/openEMS/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/openEMS/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.525Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/FDTD/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/FDTD/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.514Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/%E9%9F%B3%E8%A7%86%E9%A2%91%E5%BC%80%E5%8F%91/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.506Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="无题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="无题"/></a><div class="content"><a class="title" href="/2024/06/25/%E6%95%B0%E6%8D%AE%E5%BA%93/redis/" title="无题">无题</a><time datetime="2024-06-25T14:57:58.466Z" title="发表于 2024-06-25 22:57:58">2024-06-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By THYLOVEZQ</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.css"><script>(() => {
+  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
+    btf.wrap(item, 'div', { class: 'katex-wrap'})
+  })
+})()</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
